@@ -2,6 +2,7 @@ import Head from "next/head";
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ClubList from "@/components/ClubList";
 import styled from "@emotion/styled";
 import Logo from "@/assets/logo.svg";
 import Image from "next/image";
@@ -98,6 +99,90 @@ const ApplyButton = styled.button`
     color: #468b99;
   }
 `;
+
+const Section2 = styled.div`
+  margin-top: 96px;
+  width: 100%;
+  height: 699px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const Section2Body = styled.div`
+  width: 1200px;
+  height: 555px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`
+
+const Section2Text = styled.div`
+  width: 553px;
+  height: 147px;
+  font-size: 28px;
+  color: #33251F;
+  opacity: 0.8;
+  font-weight: 600;
+  line-height: 175%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 48px;
+  margin-bottom: 48px;
+`
+
+
+const Section2Border = styled.div`
+  border-left: 1px solid rgba(51, 27, 14, 0.2);
+  display: relative;
+  height: 156px;
+`
+
+const Section3 = styled.div`
+  width: 100%;
+  height: 802.4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const Section3Body = styled.div`
+  width: 1440px;
+  height: 602px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const Section3Introduce = styled.div`
+  width: 579px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
+
+const Section3Illu = styled.div`
+  width: 480px;
+  height: 602.4px;
+  background-color: #F3F2F1;
+  border-radius: 48px;
+`
+
+const IntroduceTitle = styled.div`
+  font-size: 40px;
+  color: #332C29;
+  font-weight: 600;
+  line-height: 150%;
+`
+
+const IntroduceDesc = styled.div`
+  width: 100%;
+  line-height: 175%;
+`
 
 export default function Home() {
   return (
@@ -230,6 +315,38 @@ export default function Home() {
             <ApplyButton>동아리 신청 마감까지 00 : 00 : 00</ApplyButton>
           </Views>
         </Section1>
+        <Section2>
+          <Section2Body>
+            <Section2Border/>
+            <Section2Text>
+              상상을 현실로 만드는 힘을 가진 우리의 놀이터에서 <br/>
+              새롭게 꿈을 펼칠 여러분을 위해 <br/>
+              작은 선물을 준비했어요.
+            </Section2Text>
+            <Section2Border/>
+          </Section2Body>
+        </Section2>
+        <Section3>
+          <Section3Body>
+            <Section3Introduce>
+              <IntroduceTitle>
+                콘텐츠디자인과 <br />
+                시연회가 무엇인가요?
+              </IntroduceTitle>
+              <IntroduceDesc>
+                콘텐츠디자인과 시연회는 2020년부터 매년 신입생들을 위해 준비하는 행사에요. <br />
+                시연회를 통해 신입생들은 앞서 입학한 선배들의 작품을 감상하고, <br />
+                앞으로의 동아리 선택부터 콘텐츠디자인과 생활까지에 대해 힌트를 얻을 수 있어요!
+              </IntroduceDesc>
+            </Section3Introduce>
+            <Section3Illu>
+
+            </Section3Illu>
+          </Section3Body>
+        </Section3>
+        
+        <ClubList/>
+
         <Footer />
       </Layout>
     </>

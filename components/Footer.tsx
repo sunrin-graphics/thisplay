@@ -46,7 +46,7 @@ const Footer = () => {
         <Layout>
             <Box>
                 <Column>
-<Image src={LogoActive} alt="logo" width={77} height={20} />
+                    <Image src={LogoActive} alt="logo" width={77} height={20} />
                     <Contents>
                         <Content>© 2023 선린인터넷고등학교 콘텐츠디자인과</Content>
                         <Content>서울특별시 용산구 원효로97길 33-4 3호관 2층</Content>
@@ -62,14 +62,14 @@ const Footer = () => {
                 <Column>
                     <Content>웹사이트</Content>
                     <Contents>
-                        <Content>웹사이트 개발 <Bold>주현명</Bold></Content>
+                        <Content>웹사이트 개발 <Bold>주현명 이하람</Bold></Content>
                         <Content>웹사이트 디자인 <Bold>표한빈 백시현 박정우</Bold></Content>
                     </Contents>
                 </Column>
                 <Column>
                     <Content>바로가기</Content>
                     <Contents>
-                        <Content>시연회 인스타그램</Content>
+                        <Content onClick={() => window.open("https://www.instagram.com/sunrin_contents", "_blank")}>시연회 인스타그램</Content>
                         <Content>시연회 페이스북</Content>
                     </Contents>
                 </Column>
