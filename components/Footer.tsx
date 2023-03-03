@@ -56,21 +56,21 @@ const Footer = () => {
                     <Content>시연회 준비</Content>
                     <Contents>
                         <Content><Bold>박정우 백시현 주현명</Bold></Content>
-                        <Content><Bold>김한비 표한빈</Bold></Content>
+                        <Content><Bold>김한비 표한빈 이하람 오지후</Bold></Content>
                     </Contents>
                 </Column>
                 <Column>
                     <Content>웹사이트</Content>
                     <Contents>
-                        <Content>웹사이트 개발 <Bold>주현명 이하람</Bold></Content>
-                        <Content>웹사이트 디자인 <Bold>표한빈 백시현 박정우</Bold></Content>
+                        <Content>개발 <Bold>주현명 이하람</Bold></Content>
+                        <Content>디자인 <Bold>표한빈 백시현 박정우</Bold></Content>
                     </Contents>
                 </Column>
                 <Column>
                     <Content>바로가기</Content>
                     <Contents>
                         <Content onClick={() => window.open("https://www.instagram.com/sunrin_contents", "_blank")}>시연회 인스타그램</Content>
-                        <Content>시연회 페이스북</Content>
+                        <Content onClick={() => window.open("https://www.facebook.com/sunrin.contents", "_blank")}>시연회 페이스북</Content>
                     </Contents>
                 </Column>
             </Box>
