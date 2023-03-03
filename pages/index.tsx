@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ClubList from "@/components/ClubList";
+import ClubList from "@/components/Club";
 import styled from "@emotion/styled";
 import Logo from "@/assets/logo.svg";
 import Image from "next/image";
@@ -344,7 +344,7 @@ export default function Home() {
             </Section3Illu>
           </Section3Body>
         </Section3>
-        
+
         <ClubList/>
 
         <Footer />

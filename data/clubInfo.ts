@@ -12,7 +12,7 @@ type ClubInfo = {
   info: string;
 };
 
-type ClubList = {
+export type ClubList = {
   id: number;
   name: string;
   department: string;
