@@ -29,7 +29,7 @@ export type ClubList = {
 const clubInfo: ClubInfo[] = [
   {
     id: 1,
-    name: "v.friend",
+    name: "v.friends",
     department: "콘텐츠디자인과",
     desc: "디자인 교육 봉사 동아리",
     logo: "",
@@ -120,7 +120,7 @@ const clubInfo: ClubInfo[] = [
   },
   {
     id: 8,
-    name: "Zer0pen",
+    name: "zer0pen",
     department: "소프트웨어과",
     desc: "게임 전문 개발 동아리",
     logo: "",
