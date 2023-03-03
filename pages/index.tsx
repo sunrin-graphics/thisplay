@@ -197,7 +197,7 @@ export default function Home() {
         <Header />
         <Section1>
           <Video muted autoPlay loop>
-            <source src="video/3.mp4" type="video/mp4" />
+            <source src="video/MainVideo.mp4" type="video/mp4" />
             <strong>Your browser does not support the video tag.</strong>
           </Video>
           <Views>
