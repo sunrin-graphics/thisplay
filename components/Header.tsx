@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import Image from "next/image";
 import Logo from "../assets/logo.svg";
 import LogoActive from "../assets/logoActive.svg";
-import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 
 const Header = () => {

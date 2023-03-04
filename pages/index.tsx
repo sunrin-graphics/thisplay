@@ -8,6 +8,7 @@ import styled from "@emotion/styled";
 import Logo from "@/assets/logo.svg";
 import Image from "next/image";
 import logo from "../assets/character.png"
+import bottom from "../assets/bottom.png"
 
 const Layout = styled.div`
   width: 100vw;
@@ -171,6 +172,10 @@ const Section3Illu = styled.div`
   height: 602.4px;
   background-color: #f3f2f1;
   border-radius: 48px;
+  transition: all 0.2s ease;
+  &:hover {
+    transform: scale(1.03);
+  }
 `;
 
 const IntroduceTitle = styled.div`
@@ -359,9 +364,11 @@ export default function Home() {
         <ClubList />
         <Question />
 
-        <Section6>
+        {/* <Section6>
 
-        </Section6>
+        </Section6> */}
+
+        {/* <Image src={bottom} alt="image" width={1920} height={462} /> */}
 
         <Footer />
       </Layout>

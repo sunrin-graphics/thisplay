@@ -10,6 +10,11 @@ const Parent = styled.div`
   justify-content: center;
   border-radius: 24px;
   align-self: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  &:hover {
+    transform: scale(1.03);
+  }
 `;
 
 const Child = styled.div`
