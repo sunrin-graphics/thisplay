@@ -755,7 +755,7 @@ export default function Home() {
               <RightContainer>
                   {/* <M>지원폼 공개까지 <br/></M> */}
                   <M>시연회 홈페이지 마감까지 <br/></M>
-                  <B>{leftHour} : {leftMinute} : {leftSecond}</B> <Sb>남았어요</Sb>
+                  <B>{leftHour} : {leftMinute} : {leftSecond}</B> <Sb>남았어요?</Sb>
               </RightContainer>
           </Container>
         </LastSection>
