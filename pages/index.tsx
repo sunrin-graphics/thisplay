@@ -11,6 +11,7 @@ import GrayBox from "@/components/GrayBox";
 import clubList, { ClubList } from "../data/clubInfo";
 import questionList from "@/data/questionData";
 import { useRef, useState, useEffect } from 'react';
+import {useRouter} from "next/router";
 
 const Layout = styled.div`
   width: 100vw;
@@ -470,6 +471,8 @@ export default function Home() {
   const [leftMinute, setLeftMinute] = useState('00');
   const [leftSecond, setLeftSecond] = useState('00');
 
+  const router = useRouter();
+
   useEffect(() => {
     // const targetTime = new Date('2023-03-11T00:00:00.000Z').getTime();
     const targetTime = new Date('2023-03-06T07:00:00.000Z').getTime();
@@ -497,8 +500,6 @@ export default function Home() {
     const intervalId = setInterval(updateLeftTime, 1000);
     return () => clearInterval(intervalId);
   }, []);
-
-
   return (
     <>
       <Head>
@@ -686,7 +687,7 @@ export default function Home() {
                 clubData.map((club) => (
                     <>
                       {club.id === 10 && <Mg/>}
-                      <div key={club.id}>
+                      <div key={club.id} onClick={() => router.push(`/clubs/${club.id}`)}>
                         <GrayBox
                             name={club.name}
                             department={club.department}
@@ -718,7 +719,6 @@ export default function Home() {
                       const question = questionList[(i * 2) + j];
                       return (
                           <>
-
                             <AutoBox key={i + j}>
                               <Title2>{question.title}</Title2>
                               <Desc2 dangerouslySetInnerHTML={{ __html: question.desc }}></Desc2>

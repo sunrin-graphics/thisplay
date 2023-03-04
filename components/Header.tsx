@@ -2,7 +2,8 @@ import styled from "@emotion/styled";
 import Image from "next/image";
 import Logo from "../assets/logo.svg";
 import LogoActive from "../assets/logoActive.svg";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import {useRouter} from "next/router";
 
 const Header = (
   props:any
@@ -56,6 +57,74 @@ const Header = (
     }
   `;
 
+  const Title = styled.div`
+    color: #9B9B9B;
+    font-size: 16px;
+  `
+
+  const Modal = styled.div`
+    width: 276px;
+    height: 224px;
+    background: white;
+    box-shadow: 0px 12px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid #DDDDDD;
+    position: absolute;
+    border-radius: 12px;
+    top: 70px;
+    right: 70px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  `
+  const ModalBody = styled.div`
+    width: 224px;
+    height: 184px;
+    display: flex;
+    justify-content: space-between;
+  `
+  
+  const DP = styled.div`
+    width: 98px;
+    height: 184px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  `
+
+  const router = useRouter(); 
+
+  const CD_data = [
+    { id: 1, title: "v.friends" },
+    { id: 2, title: "MIR" },
+    { id: 3, title: "TATE" },
+    { id: 3, title: "자의누리" },
+    { id: 3, title: "아우내" },
+  ];
+
+  const SW_data = [
+    { id: 1, title: "EDCAN" },
+    { id: 2, title: "IWOP" },
+    { id: 3, title: "zer0pen" },
+    { id: 3, title: "RG" },
+    { id: 3, title: "App:ple Pi" },
+  ];
+
+  const Data = styled.div`
+    color: #4B4B4B;
+    cursor: pointer;
+  `
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const changeModal = () => {
+    if (isOpen) {
+      setIsOpen(false)
+    }
+    else if (!isOpen) {
+      setIsOpen(true)
+    }
+  }
+
   return (
     <Layout navBar={nav}>
       <Box>
@@ -72,10 +141,44 @@ const Header = (
           <LinkStyled onClick={props.sc3}>질문과 답변</LinkStyled>
           <LinkStyled onClick={props.sc4}>지원하기</LinkStyled>
         </List>
-        <ClubSelectButton>
-          동아리 소개
+        <ClubSelectButton
+          onClick={() => changeModal()}
+        >
+          동아리별 소개
           <Icon className="material-symbols-outlined">expand_more</Icon>
         </ClubSelectButton>
+        { isOpen === true &&
+          <Modal>
+            <ModalBody>
+              <DP>
+                <Title>
+                  콘텐츠디자인과
+                </Title>
+                {
+                  CD_data.map((item) => (
+                    <div onClick={() => router.push(`/clubs/${item.id}`)} key={item.id}>
+                      <Data>
+                        {item.title}
+                      </Data>
+                    </div>
+                  ))
+                }
+              </DP>
+              <DP>
+                <Title>
+                  소프트웨어과
+                </Title>
+                {
+                  SW_data.map((item) => (
+                    <Data key={item.id}>
+                      {item.title}
+                    </Data>
+                  ))
+                }
+              </DP>
+            </ModalBody>
+          </Modal>
+      }
       </Box>
     </Layout>
   );
