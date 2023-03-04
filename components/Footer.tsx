@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
-import LogoActive from "../assets/logoActive.svg";
+import LogoActive from "../assets/footer_logo.svg";
 
 const Layout = styled.footer`
   width: 100vw;
@@ -37,6 +37,14 @@ const Content = styled.span`
   color: rgba(51, 32, 24, 0.65);
 `;
 
+const ContentC = styled.span`
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: rgba(51, 32, 24, 0.65);
+  cursor: pointer;
+`;
+
 const Bold = styled.span`
   font-weight: 700;
 `;
@@ -46,7 +54,7 @@ const Footer = () => {
     <Layout>
       <Box>
         <Column>
-          <Image src={LogoActive} alt="logo" width={77} height={20} />
+          <Image src={LogoActive} alt="logo" width={273} height={20} />
           <Contents>
             <Content>© 2023 선린인터넷고등학교 콘텐츠디자인과</Content>
             <Content>서울특별시 용산구 원효로97길 33-4 3호관 2층</Content>
@@ -77,7 +85,7 @@ const Footer = () => {
         <Column>
           <Content>바로가기</Content>
           <Contents>
-            <Content
+            <ContentC
               onClick={() =>
                 window.open(
                   "https://www.instagram.com/sunrin_contents",
@@ -86,8 +94,8 @@ const Footer = () => {
               }
             >
               시연회 인스타그램
-            </Content>
-            <Content
+            </ContentC>
+            <ContentC
               onClick={() =>
                 window.open(
                   "https://www.facebook.com/sunrin.contents",
@@ -96,7 +104,7 @@ const Footer = () => {
               }
             >
               시연회 페이스북
-            </Content>
+            </ContentC>
           </Contents>
         </Column>
       </Box>

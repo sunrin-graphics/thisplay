@@ -50,6 +50,13 @@ const ClubParent = styled.div`
   justify-content: space-between;
 `
 
+const Mg = styled.div`
+  width: 390px;
+  height: 138px;
+  border-radius: 24px;
+  align-self: center;
+`
+
 const clubData: ClubList = clubList;
 
 const Club = () => {
@@ -65,8 +72,10 @@ const Club = () => {
           </Desc>
         </Emphasize>
         <ClubParent>
-          {
-            clubData.map((club) => (
+        {
+          clubData.map((club) => (
+            <>
+              {club.id === 10 && <Mg/>}
               <div key={club.id}>
                 <GrayBox
                   name={club.name}
@@ -75,8 +84,10 @@ const Club = () => {
                   logo={club.logo}
                 />
               </div>
-            ))
-          }
+              {club.id === 10 && <Mg/>}
+            </>
+          ))
+        }
         </ClubParent>
       </Child>
     </Parent>

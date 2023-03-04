@@ -3,9 +3,11 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ClubList from "@/components/Club";
+import Question from "@/components/Question";
 import styled from "@emotion/styled";
 import Logo from "@/assets/logo.svg";
 import Image from "next/image";
+import logo from "../assets/character.png"
 
 const Layout = styled.div`
   width: 100vw;
@@ -183,6 +185,10 @@ const IntroduceDesc = styled.div`
   line-height: 175%;
 `;
 
+const Section6 = styled.div`
+  
+`
+
 export default function Home() {
   return (
     <>
@@ -344,11 +350,18 @@ export default function Home() {
                 얻을 수 있어요!
               </IntroduceDesc>
             </Section3Introduce>
-            <Section3Illu></Section3Illu>
+            <Section3Illu>
+              <Image src={logo} alt="image" width={480} height={602} />
+            </Section3Illu>
           </Section3Body>
         </Section3>
 
         <ClubList />
+        <Question />
+
+        <Section6>
+
+        </Section6>
 
         <Footer />
       </Layout>
