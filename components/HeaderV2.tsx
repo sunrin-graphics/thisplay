@@ -14,7 +14,7 @@ const Layout = styled.header`
 `;
 
 const Box = styled.div`
-  width: 1440px;
+  width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;

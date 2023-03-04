@@ -65,8 +65,8 @@ const Line = styled.div`
 const Views = styled.div`
   position: absolute;
   top: calc(50vh - 143px);
-  left: calc(50vw - 720px);
-  width: 1440px;
+  left: calc(50vw - 600px);
+  width: 1200px;
 `;
 
 const Text1 = styled.div`
@@ -107,7 +107,7 @@ const Section2 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const Section2Body = styled.div`
   width: 1200px;
@@ -116,13 +116,13 @@ const Section2Body = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-`
+`;
 
 const Section2Text = styled.div`
   width: 553px;
   height: 147px;
   font-size: 28px;
-  color: #33251F;
+  color: #33251f;
   opacity: 0.8;
   font-weight: 600;
   line-height: 175%;
@@ -132,14 +132,13 @@ const Section2Text = styled.div`
   justify-content: center;
   margin-top: 48px;
   margin-bottom: 48px;
-`
-
+`;
 
 const Section2Border = styled.div`
   border-left: 1px solid rgba(51, 27, 14, 0.2);
-  display: relative;
+  position: relative;
   height: 156px;
-`
+`;
 
 const Section3 = styled.div`
   width: 100%;
@@ -147,15 +146,15 @@ const Section3 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const Section3Body = styled.div`
-  width: 1440px;
+  width: 1200px;
   height: 602px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 const Section3Introduce = styled.div`
   width: 579px;
@@ -163,33 +162,36 @@ const Section3Introduce = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`
+`;
 
 const Section3Illu = styled.div`
   width: 480px;
   height: 602.4px;
-  background-color: #F3F2F1;
+  background-color: #f3f2f1;
   border-radius: 48px;
-`
+`;
 
 const IntroduceTitle = styled.div`
   font-size: 40px;
-  color: #332C29;
+  color: #332c29;
   font-weight: 600;
   line-height: 150%;
-`
+`;
 
 const IntroduceDesc = styled.div`
   width: 100%;
   line-height: 175%;
-`
+`;
 
 export default function Home() {
   return (
     <>
       <Head>
         <title>thisPlay!</title>
-        <meta name="description" content="2023 콘텐츠디자인과 시연회 thisPlay!" />
+        <meta
+          name="description"
+          content="2023 콘텐츠디자인과 시연회 thisPlay!"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -228,20 +230,20 @@ export default function Home() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M47.0204 36C47.0204 42.0864 42.0864 47.0204 36 47.0204C29.9136 47.0204 24.9796 42.0864 24.9796 36C24.9796 29.9136 29.9136 24.9796 36 24.9796C42.0864 24.9796 47.0204 29.9136 47.0204 36ZM38.2041 36C38.2041 37.2173 37.2173 38.2041 36 38.2041C34.7827 38.2041 33.7959 37.2173 33.7959 36C33.7959 34.7827 34.7827 33.7959 36 33.7959C37.2173 33.7959 38.2041 34.7827 38.2041 36Z"
                   fill="white"
                 />
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M36 59.5102C48.9843 59.5102 59.5102 48.9843 59.5102 36C59.5102 23.0157 48.9843 12.4898 36 12.4898C23.0157 12.4898 12.4898 23.0157 12.4898 36C12.4898 48.9843 23.0157 59.5102 36 59.5102ZM36 50.6939C44.1152 50.6939 50.6939 44.1152 50.6939 36C50.6939 27.8848 44.1152 21.3061 36 21.3061C27.8848 21.3061 21.3061 27.8848 21.3061 36C21.3061 44.1152 27.8848 50.6939 36 50.6939Z"
                   fill="white"
                 />
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M36 72C55.8822 72 72 55.8822 72 36C72 16.1177 55.8822 0 36 0C16.1177 0 0 16.1177 0 36C0 55.8822 16.1177 72 36 72ZM36 63.1837C51.0131 63.1837 63.1837 51.0131 63.1837 36C63.1837 20.9869 51.0131 8.81633 36 8.81633C20.9869 8.81633 8.81633 20.9869 8.81633 36C8.81633 51.0131 20.9869 63.1837 36 63.1837Z"
                   fill="white"
                 />
@@ -258,7 +260,7 @@ export default function Home() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <g filter="url(#filter0_b_575_1262)">
-                  <g clip-path="url(#clip0_575_1262)">
+                  <g clipPath="url(#clip0_575_1262)">
                     <path
                       d="M29.5006 24C29.5006 22.6193 30.6196 21.4998 32.0003 21.4998C33.381 21.4998 34.5006 22.6193 34.5006 24C34.5006 25.3807 33.381 26.5002 32.0003 26.5002C30.6196 26.5002 29.5006 25.3807 29.5006 24ZM28.149 24C28.149 26.127 29.8732 27.8512 32.0003 27.8512C34.1274 27.8512 35.8516 26.127 35.8516 24C35.8516 21.873 34.1274 20.1488 32.0003 20.1488C29.8732 20.1488 28.149 21.873 28.149 24ZM35.104 19.9961C35.1038 20.4932 35.5066 20.8963 36.0037 20.8965C36.5008 20.8967 36.9039 20.4939 36.9041 19.9969C36.9043 19.4998 36.5015 19.0967 36.0044 19.0965C35.5076 19.0967 35.1045 19.4993 35.104 19.9961ZM28.9702 30.1048C28.2389 30.0715 27.8415 29.9497 27.5773 29.8468C27.2272 29.7105 26.9773 29.5481 26.7146 29.2858C26.4519 29.0235 26.2893 28.7739 26.1536 28.4237C26.0506 28.1597 25.9288 27.7622 25.8956 27.031C25.8592 26.2404 25.852 26.0029 25.852 24.0001C25.852 21.9972 25.8598 21.7604 25.8956 20.9692C25.9289 20.2379 26.0516 19.8412 26.1536 19.5764C26.2899 19.2262 26.4523 18.9764 26.7146 18.7137C26.977 18.451 27.2266 18.2884 27.5773 18.1527C27.8414 18.0497 28.2389 17.9279 28.9702 17.8947C29.7608 17.8583 29.9983 17.8511 32.0003 17.8511C34.0023 17.8511 34.2401 17.8589 35.0313 17.8947C35.7626 17.928 36.1594 18.0507 36.4242 18.1527C36.7743 18.2884 37.0242 18.4514 37.2869 18.7137C37.5496 18.976 37.7116 19.2262 37.8479 19.5764C37.9509 19.8404 38.0727 20.2379 38.1059 20.9692C38.1423 21.7604 38.1495 21.9972 38.1495 24.0001C38.1495 26.0029 38.1423 26.2397 38.1059 27.031C38.0726 27.7622 37.9502 28.1596 37.8479 28.4237C37.7116 28.7739 37.5492 29.0237 37.2869 29.2858C37.0245 29.5479 36.7743 29.7105 36.4242 29.8468C36.1601 29.9498 35.7626 30.0716 35.0313 30.1048C34.2407 30.1412 34.0032 30.1484 32.0003 30.1484C29.9974 30.1484 29.7605 30.1412 28.9702 30.1048ZM28.9081 16.5454C28.1096 16.5818 27.564 16.7084 27.0875 16.8938C26.5941 17.0852 26.1763 17.3421 25.7589 17.7589C25.3415 18.1756 25.0853 18.594 24.8938 19.0874C24.7084 19.5642 24.5818 20.1095 24.5454 20.9079C24.5085 21.7076 24.5 21.9632 24.5 24C24.5 26.0368 24.5085 26.2924 24.5454 27.0921C24.5818 27.8906 24.7084 28.4358 24.8938 28.9126C25.0853 29.4057 25.3415 29.8246 25.7589 30.2411C26.1763 30.6577 26.5941 30.9142 27.0875 31.1062C27.5649 31.2916 28.1096 31.4182 28.9081 31.4546C29.7082 31.4909 29.9635 31.5 32.0003 31.5C34.0371 31.5 34.2928 31.4915 35.0925 31.4546C35.891 31.4182 36.4363 31.2916 36.9131 31.1062C37.4062 30.9142 37.8243 30.6579 38.2417 30.2411C38.6591 29.8244 38.9148 29.4057 39.1068 28.9126C39.2922 28.4358 39.4194 27.8905 39.4552 27.0921C39.4915 26.2918 39.5 26.0368 39.5 24C39.5 21.9632 39.4915 21.7076 39.4552 20.9079C39.4188 20.1094 39.2922 19.5639 39.1068 19.0874C38.9148 18.5943 38.6585 18.1763 38.2417 17.7589C37.8249 17.3414 37.4062 17.0852 36.9137 16.8938C36.4363 16.7084 35.891 16.5812 35.0931 16.5454C34.2934 16.5091 34.0377 16.5 32.0009 16.5C29.9641 16.5 29.7082 16.5085 28.9081 16.5454Z"
                       fill="white"
@@ -285,9 +287,9 @@ export default function Home() {
                     width="232"
                     height="96"
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                   >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feGaussianBlur in="BackgroundImageFix" stdDeviation="12" />
                     <feComposite
                       in2="SourceAlpha"
@@ -317,13 +319,13 @@ export default function Home() {
         </Section1>
         <Section2>
           <Section2Body>
-            <Section2Border/>
+            <Section2Border />
             <Section2Text>
-              상상을 현실로 만드는 힘을 가진 우리의 놀이터에서 <br/>
-              새롭게 꿈을 펼칠 여러분을 위해 <br/>
+              상상을 현실로 만드는 힘을 가진 우리의 놀이터에서 <br />
+              새롭게 꿈을 펼칠 여러분을 위해 <br />
               작은 선물을 준비했어요.
             </Section2Text>
-            <Section2Border/>
+            <Section2Border />
           </Section2Body>
         </Section2>
         <Section3>
@@ -334,18 +336,19 @@ export default function Home() {
                 시연회가 무엇인가요?
               </IntroduceTitle>
               <IntroduceDesc>
-                콘텐츠디자인과 시연회는 2020년부터 매년 신입생들을 위해 준비하는 행사에요. <br />
-                시연회를 통해 신입생들은 앞서 입학한 선배들의 작품을 감상하고, <br />
-                앞으로의 동아리 선택부터 콘텐츠디자인과 생활까지에 대해 힌트를 얻을 수 있어요!
+                콘텐츠디자인과 시연회는 2020년부터 매년 신입생들을 위해 준비하는
+                행사에요. <br />
+                시연회를 통해 신입생들은 앞서 입학한 선배들의 작품을 감상하고,{" "}
+                <br />
+                앞으로의 동아리 선택부터 콘텐츠디자인과 생활까지에 대해 힌트를
+                얻을 수 있어요!
               </IntroduceDesc>
             </Section3Introduce>
-            <Section3Illu>
-
-            </Section3Illu>
+            <Section3Illu></Section3Illu>
           </Section3Body>
         </Section3>
 
-        <ClubList/>
+        <ClubList />
 
         <Footer />
       </Layout>

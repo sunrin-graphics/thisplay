@@ -4,17 +4,21 @@ import Image from "next/image";
 const Parent = styled.div`
   width: 390px;
   height: 138px;
-  background-color: #F3F2F1;
+  background-color: #f3f2f1;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 24px;
-`
+  align-self: center;
+`;
 
 const Child = styled.div`
   width: 342px;
   height: 90px;
-`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 interface GrayBoxProps {
   name: string;
@@ -26,33 +30,33 @@ interface GrayBoxProps {
 const Name = styled.div`
   font-size: 20px;
   font-weight: 500;
-  color: #332C29;
-`
+  color: #332c29;
+`;
 
 const Box1 = styled.div`
   display: flex;
   height: 90px;
   flex-direction: column;
   justify-content: space-between;
-`
+`;
 
 const Department = styled.div`
   font-size: 16px;
-  color: #594E49;
-`
+  color: #594e49;
+`;
 
 const Desc = styled.div`
   font-size: 16px;
-  color: #594E49;
+  color: #594e49;
   font-weight: 500;
-`
+`;
 
 const BoxChild = styled.div`
   height: 44px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`
+`;
 
 const GrayBox = ({ name, department, desc, logo }: GrayBoxProps) => {
   return (
@@ -60,19 +64,14 @@ const GrayBox = ({ name, department, desc, logo }: GrayBoxProps) => {
       <Child>
         <Box1>
           <>
-            <Name>
-              {name}
-            </Name>
+            <Name>{name}</Name>
           </>
           <BoxChild>
-            <Department>
-              {department}
-            </Department>
-            <Desc>
-              {desc}
-            </Desc>
+            <Department>{department}</Department>
+            <Desc>{desc}</Desc>
           </BoxChild>
         </Box1>
+        <Image src={logo} alt="logo" width={64} height={64} />
       </Child>
     </Parent>
   );

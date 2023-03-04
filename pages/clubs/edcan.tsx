@@ -54,7 +54,7 @@ const ApplicationButton = styled.button`
 `;
 
 const Wrapper = styled.div`
-  width: 1440px;
+  width: 1200px;
   display: flex;
   flex-direction: column;
 `;
@@ -152,7 +152,10 @@ export default function Edcan() {
     <>
       <Head>
         <title>EDCAN - thisPlay!</title>
-        <meta name="description" content="2023 콘텐츠디자인과 시연회 thisPlay!" />
+        <meta
+          name="description"
+          content="2023 콘텐츠디자인과 시연회 thisPlay!"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
