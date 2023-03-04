@@ -4,7 +4,6 @@ import Logo from "../assets/logo.svg";
 import LogoActive from "../assets/logoActive.svg";
 import {useRouter} from "next/router";
 
-
 const Layout = styled.header`
   width: 100vw;
   height: 60px;

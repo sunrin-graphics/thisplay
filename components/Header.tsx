@@ -4,6 +4,7 @@ import Logo from "../assets/logo.svg";
 import LogoActive from "../assets/logoActive.svg";
 import React, { useEffect, useState } from "react";
 import {useRouter} from "next/router";
+import Link from "next/link";
 
 const Header = (
   props:any
@@ -94,19 +95,19 @@ const Header = (
   const router = useRouter(); 
 
   const CD_data = [
-    { id: 1, title: "v.friends" },
-    { id: 2, title: "MIR" },
-    { id: 3, title: "TATE" },
-    { id: 3, title: "자의누리" },
-    { id: 3, title: "아우내" },
+    { id: 1, title: "v.friends", move: 1 },
+    { id: 2, title: "MIR", move: 4 },
+    { id: 3, title: "TATE", move: 5 },
+    { id: 4, title: "자의누리", move: 9 },
+    { id: 5, title: "아우내", move: 8 },
   ];
 
   const SW_data = [
-    { id: 1, title: "EDCAN" },
-    { id: 2, title: "IWOP" },
-    { id: 3, title: "zer0pen" },
-    { id: 3, title: "RG" },
-    { id: 3, title: "App:ple Pi" },
+    { id: 1, title: "EDCAN", move: 2 },
+    { id: 2, title: "IWOP", move: 3 },
+    { id: 3, title: "zer0pen", move: 7 },
+    { id: 4, title: "RG", move: 6 },
+    { id: 5, title: "App:ple Pi", move: 10 },
   ];
 
   const Data = styled.div`
@@ -156,7 +157,7 @@ const Header = (
                 </Title>
                 {
                   CD_data.map((item) => (
-                    <div onClick={() => router.push(`/clubs/${item.id}`)} key={item.id}>
+                    <div onClick={() => router.push(`/clubs/${item.move}`)} key={item.id}>
                       <Data>
                         {item.title}
                       </Data>

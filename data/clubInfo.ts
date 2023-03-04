@@ -10,6 +10,8 @@ type ClubInfo = {
   sns: string[];
   awards: string[];
   info: string;
+  mainColor: string;
+  subColor: String;
 };
 
 export type ClubList = {
@@ -24,6 +26,8 @@ export type ClubList = {
   sns: string[];
   awards: string[];
   info: string;
+  mainColor: string;
+  subColor: String;
 }[];
 
 const clubInfo: ClubInfo[] = [
@@ -39,6 +43,8 @@ const clubInfo: ClubInfo[] = [
     sns: [],
     awards: [],
     info: "",
+    mainColor: "",
+    subColor: ""
   },
   {
     id: 2,
@@ -52,6 +58,8 @@ const clubInfo: ClubInfo[] = [
     sns: [],
     awards: [],
     info: "",
+    mainColor: "",
+    subColor: ""
   },
 
   {
@@ -66,6 +74,8 @@ const clubInfo: ClubInfo[] = [
     sns: [],
     awards: [],
     info: "",
+    mainColor: "",
+    subColor: ""
   },
   {
     id: 4,
@@ -79,6 +89,8 @@ const clubInfo: ClubInfo[] = [
     sns: [],
     awards: [],
     info: "",
+    mainColor: "",
+    subColor: ""
   },
   {
     id: 5,
@@ -92,6 +104,8 @@ const clubInfo: ClubInfo[] = [
     sns: [],
     awards: [],
     info: "",
+    mainColor: "",
+    subColor: ""
   },
   {
     id: 6,
@@ -105,6 +119,8 @@ const clubInfo: ClubInfo[] = [
     sns: [],
     awards: [],
     info: "",
+    mainColor: "",
+    subColor: ""
   },
   {
     id: 7,
@@ -118,6 +134,8 @@ const clubInfo: ClubInfo[] = [
     sns: [],
     awards: [],
     info: "",
+    mainColor: "",
+    subColor: ""
   },
   {
     id: 8,
@@ -131,6 +149,8 @@ const clubInfo: ClubInfo[] = [
     sns: [],
     awards: [],
     info: "",
+    mainColor: "",
+    subColor: ""
   },
   {
     id: 9,
@@ -144,6 +164,8 @@ const clubInfo: ClubInfo[] = [
     sns: [],
     awards: [],
     info: "",
+    mainColor: "",
+    subColor: ""
   },
   {
     id: 10,
@@ -157,6 +179,8 @@ const clubInfo: ClubInfo[] = [
     sns: [],
     awards: [],
     info: "",
+    mainColor: "",
+    subColor: ""
   },
 ];
 
@@ -172,6 +196,8 @@ const clubList: ClubList = clubInfo.map((club) => ({
   sns: club.sns,
   awards: club.awards,
   info: club.info,
+  mainColor: club.mainColor,
+  subColor: club.subColor,
 }));
 
 export default clubList;

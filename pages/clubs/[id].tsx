@@ -1,8 +1,11 @@
 import Head from "next/head";
-import React from "react";
+import React, { useEffect } from "react";
 import HeaderV2 from "@/components/HeaderV2";
 import Footer from "@/components/Footer";
 import styled from "@emotion/styled";
+import { useRouter } from "next/router";
+import clubList, { ClubList } from "../../data/clubInfo"
+
 
 const Layout = styled.div`
   width: 100vw;
@@ -67,6 +70,7 @@ const Row = styled.div`
 `;
 
 const BackIcon = styled.span`
+cursor: pointer;
   width: 64px;
   height: 64px;
   color: #7a6e69;
@@ -147,11 +151,19 @@ const ClubInfoContentText = styled.span`
   color: rgba(51, 32, 24, 0.65);
 `;
 
-export default function Edcan() {
+const Edcan = () => {
+  const router = useRouter();
+  const id = router.query.id as string;
+
+  const clubData: ClubList = clubList;
+  const data = clubData[Number(id) - 1];
+
+  console.log(data)
+
   return (
     <>
       <Head>
-        <title>EDCAN - thisPlay!</title>
+        <title>동아리 소개</title>
         <meta
           name="description"
           content="2023 콘텐츠디자인과 시연회 thisPlay!"
@@ -165,10 +177,10 @@ export default function Edcan() {
           <Wrapper>
             <Row>
               <BackAndClub>
-                <BackIcon className="material-symbols-outlined">
+                <BackIcon className="material-symbols-outlined" onClick={() => window.history.back()}>
                   arrow_back_ios
                 </BackIcon>
-                EDCAN
+                {data.name}
               </BackAndClub>
               <svg
                 width="106"
@@ -235,40 +247,7 @@ export default function Edcan() {
                     <ClubInfoContentText>
                       2022 제 8회 선린 해커톤 은상
                     </ClubInfoContentText>
-                    <ClubInfoContentText>
-                      2022 제 8회 선린 해커톤 동상
-                    </ClubInfoContentText>
-                    <ClubInfoContentText>
-                      2022 제 8회 선린 해커톤 동상
-                    </ClubInfoContentText>
-                    <ClubInfoContentText>
-                      제주 ICT이노베이션스퀘어 해커톤 대상
-                    </ClubInfoContentText>
-                    <ClubInfoContentText>
-                      2022 메타버스 개발자 경진대회 대상
-                    </ClubInfoContentText>
-                    <ClubInfoContentText>
-                      제 20회 임베디드 소프트웨어 경진대회 틴 스타트업 부문
-                      성균관대학교 총장상
-                    </ClubInfoContentText>
-                    <ClubInfoContentText>
-                      2022 콘텐츠디자인과 그래픽 디자인 공모전 UI/UX 은상
-                    </ClubInfoContentText>
-                    <ClubInfoContentText>
-                      2022 콘텐츠디자인과 그래픽 디자인 공모전 UI/UX 은상
-                    </ClubInfoContentText>
-                    <ClubInfoContentText>
-                      2022 콘텐츠디자인과 그래픽 디자인 공모전 UI/UX 은상
-                    </ClubInfoContentText>
-                    <ClubInfoContentText>
-                      2022 콘텐츠디자인과 영상 공모전 광고 부문 대상
-                    </ClubInfoContentText>
-                    <ClubInfoContentText>
-                      2022 콘텐츠디자인과 영상 공모전 광고 부문 금상
-                    </ClubInfoContentText>
-                    <ClubInfoContentText>
-                      2022 콘텐츠디자인과 영상 공모전 모션 그래픽 부문 금상
-                    </ClubInfoContentText>
+
                   </Column2>
                 </ClubInfoGroup>
               </Column>
@@ -301,7 +280,6 @@ export default function Edcan() {
                 marginTop: "35px",
               }}
             >
-              <ClubInfoTitleText>작품 소개</ClubInfoTitleText>
             </ClubInfoGroup>
           </Wrapper>
         </Main>
@@ -310,3 +288,5 @@ export default function Edcan() {
     </>
   );
 }
+
+export default Edcan
