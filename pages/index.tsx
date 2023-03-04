@@ -471,7 +471,8 @@ export default function Home() {
   const [leftSecond, setLeftSecond] = useState('00');
 
   useEffect(() => {
-    const targetTime = new Date('2023-03-11T00:00:00.000Z').getTime();
+    // const targetTime = new Date('2023-03-11T00:00:00.000Z').getTime();
+    const targetTime = new Date('2023-03-06T07:00:00.000Z').getTime();
     
     const updateLeftTime = () => {
       const now = new Date().getTime();
@@ -752,8 +753,9 @@ export default function Home() {
                 </Ltb>
               </LeftContainer>
               <RightContainer>
-                  <M>지원폼 공개까지 <br/></M>
-                  <B>{leftHour} : {leftMinute} : {leftSecond}</B> <Sb>남았어요!</Sb>
+                  {/* <M>지원폼 공개까지 <br/></M> */}
+                  <M>시연회 홈페이지 마감까지 <br/></M>
+                  <B>{leftHour} : {leftMinute} : {leftSecond}</B> <Sb>남았어요</Sb>
               </RightContainer>
           </Container>
         </LastSection>
