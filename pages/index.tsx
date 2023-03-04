@@ -337,21 +337,33 @@ const Icon2 = styled.span`
 
 export default function Home() {
   const clubData: ClubList = clubList;
-  const ref1 = useRef();
-  const ref2 = useRef();
-  const ref3 = useRef();
-  const ref4 = useRef();
+  const ref1 = useRef<HTMLDivElement>(null);
+  const ref2 = useRef<HTMLDivElement>(null);
+  const ref3 = useRef<HTMLDivElement>(null);
+  const ref4 = useRef<HTMLDivElement>();
   function gotoScroll(className:string) {
-    window.scrollTo({ behavior: 'smooth', top: ref1.current?.offsetTop - 70 })
+    if(ref1 !== null) {
+      const {offsetTop} = ref1.current as any;
+      window.scrollTo({behavior: 'smooth', top: offsetTop - 70})
+    }
   }
   function gotoScroll2(className:string) {
-    window.scrollTo({ behavior: 'smooth', top: ref2.current?.offsetTop+40 })
+    if(ref2 !== null) {
+      const {offsetTop} = ref2.current as any;
+      window.scrollTo({behavior: 'smooth', top: offsetTop + 40})
+    }
   }
   function gotoScroll3(className:string) {
-    window.scrollTo({ behavior: 'smooth', top: ref3.current?.offsetTop - 70 })
+    if(ref3 !== null) {
+      const {offsetTop} = ref3.current as any;
+      window.scrollTo({behavior: 'smooth', top: offsetTop - 70})
+    }
   }
   function gotoScroll4(className:string) {
-    window.scrollTo({ behavior: 'smooth', top: ref4.currentTop - 70 })
+    if(ref4 !== null) {
+      const {offsetTop} = ref4.current as any;
+      window.scrollTo({behavior: 'smooth', top: offsetTop - 70})
+    }
   }
   return (
     <>
