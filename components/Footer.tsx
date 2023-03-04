@@ -53,7 +53,7 @@ const ContentC = styled.span`
 `;
 
 const Bold = styled.span`
-  font-weight: 700;
+  font-weight: 600;
 `;
 
 const Footer = () => {

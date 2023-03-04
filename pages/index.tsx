@@ -1,15 +1,16 @@
 import Head from "next/head";
-import React, {useRef} from "react";
+import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import styled from "@emotion/styled";
 import Logo from "@/assets/logo.svg";
 import Image from "next/image";
 import logo from "../assets/character.png"
-import bottom from "../assets/bottom.png"
+import arrow from "../assets/arrow_back.png"
 import GrayBox from "@/components/GrayBox";
 import clubList, { ClubList } from "../data/clubInfo";
 import questionList from "@/data/questionData";
+import { useRef, useState, useEffect } from 'react';
 
 const Layout = styled.div`
   width: 100vw;
@@ -18,10 +19,10 @@ const Layout = styled.div`
   flex-direction: column;
 `;
 
-const Main = styled.main`
-  width: 100%;
-  height: 300vh;
-`;
+const LtbTxt = styled.span`
+  font-size: 18px;
+  margin-right: 4px;
+`
 
 const Section1 = styled.div`
   width: 100%;
@@ -195,6 +196,7 @@ const IntroduceDesc = styled.div`
 const Section6 = styled.div`
   
 `
+
 const Parent = styled.div`
   width: 100%;
   height: 1008px;
@@ -202,6 +204,93 @@ const Parent = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+`
+
+const LastSection = styled.div`
+  width: 100%;
+  height: 402px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+`
+
+const Container = styled.div`
+  width: 1200px;
+  height: 214px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const LeftContainer = styled.div`
+  width: 464px;
+  height: 214px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+`
+
+const Ltt = styled.div`
+  width: 100%;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
+
+const Ltb = styled.div`
+  width: 230px;
+  height: 60px;
+  border: 1px solid white;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  &:hover {
+    background-color: white;
+    color: #000;
+    mix-blend-mode: screen;
+  }
+`
+
+const LttDesc = styled.div`
+  font-size: 18px;
+  line-height: 150%;
+`
+
+const LttCaution = styled.div`
+  font-size: 14px;
+  color: #F3F2F1;
+`
+
+const RightContainer = styled.div`
+  width: 555px;
+  line-height: 160%;
+  height: 136px;
+  font-size: 48px;
+  color: white;
+  text-align: right;
+`
+
+const M = styled.span`
+  font-weight: 400;
+`
+
+const B = styled.span`
+  font-weight: 600;
+`
+
+const Sb = styled.span`
+  font-weight: 500;
+`
+
+const LttTitle = styled.div`
+  font-size: 28px;
+  font-weight: 500;
 `
 
 const Child = styled.div`
@@ -333,38 +422,82 @@ const Icon2 = styled.span`
   font-weight: 600;
 `
 
-
-
 export default function Home() {
   const clubData: ClubList = clubList;
+
+  const ref0 = useRef<HTMLDivElement>(null);
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
   const ref3 = useRef<HTMLDivElement>(null);
   const ref4 = useRef<HTMLDivElement>();
+
+  function gotoScroll0(className:string) {
+    if(ref0 !== null) {
+      const {offsetTop} = ref0.current as any;
+      window.scrollTo({behavior: 'smooth', top: offsetTop})
+    }
+  }
+
   function gotoScroll(className:string) {
     if(ref1 !== null) {
       const {offsetTop} = ref1.current as any;
       window.scrollTo({behavior: 'smooth', top: offsetTop - 70})
     }
   }
+
   function gotoScroll2(className:string) {
     if(ref2 !== null) {
       const {offsetTop} = ref2.current as any;
       window.scrollTo({behavior: 'smooth', top: offsetTop + 40})
     }
   }
+
   function gotoScroll3(className:string) {
     if(ref3 !== null) {
       const {offsetTop} = ref3.current as any;
       window.scrollTo({behavior: 'smooth', top: offsetTop - 70})
     }
   }
+
   function gotoScroll4(className:string) {
     if(ref4 !== null) {
       const {offsetTop} = ref4.current as any;
       window.scrollTo({behavior: 'smooth', top: offsetTop - 70})
     }
   }
+
+  const [leftHour, setLeftHour] = useState('00');
+  const [leftMinute, setLeftMinute] = useState('00');
+  const [leftSecond, setLeftSecond] = useState('00');
+
+  useEffect(() => {
+    const targetTime = new Date('2023-03-11T00:00:00.000Z').getTime();
+    
+    const updateLeftTime = () => {
+      const now = new Date().getTime();
+      const distance = (targetTime  - 1000 * 60 * 60 * 9)- now;
+
+      if (distance <= 0) {
+        setLeftHour('00');
+        setLeftMinute('00');
+        setLeftSecond('00');
+        return;
+      }
+
+      const hours = Math.floor(distance / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      setLeftHour(hours.toString().padStart(2, '0'));
+      setLeftMinute(minutes.toString().padStart(2, '0'));
+      setLeftSecond(seconds.toString().padStart(2, '0'));
+    };
+
+    const intervalId = setInterval(updateLeftTime, 1000);
+    return () => clearInterval(intervalId);
+  }, []);
+
+
   return (
     <>
       <Head>
@@ -376,8 +509,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
+      <Layout ref={ref0}>
         <Header
+          sc0={gotoScroll0}
           sc1={gotoScroll}
           sc2={gotoScroll2}
           sc3={gotoScroll3}
@@ -500,7 +634,7 @@ export default function Home() {
                 </defs>
               </svg>
             </SpaceBetweenV2>
-            <ApplyButton>동아리 신청 마감까지 00 : 00 : 00 <Icon2 className={'material-symbols-outlined'}>arrow_forward</Icon2> </ApplyButton>
+            <ApplyButton>동아리 신청 마감까지 {leftHour} : {leftMinute} : {leftSecond} <Icon2 className={'material-symbols-outlined'}>arrow_forward</Icon2> </ApplyButton>
           </Views>
         </Section1>
         <Section2 >
@@ -596,6 +730,34 @@ export default function Home() {
             </Part>
           </Child2>
         </Parent2>
+
+        <LastSection>
+          <Container>
+              <LeftContainer>
+                <Ltt>
+                  <LttTitle>
+                    즐거운 시연회 관람 되셨나요?
+                  </LttTitle>
+                  <LttDesc>
+                    이제 우리들의 놀이터에 당신을 초대합니다. <br/>
+                    면접 지원을 통해 여러분이 함께 하고 싶은 동아리를 선택해주세요!
+                  </LttDesc>
+                  <LttCaution>
+                    * 3월 11일부터 12일까지 지원폼이 공개됩니다.
+                  </LttCaution>
+                </Ltt>
+                <Ltb>
+                  <LtbTxt>면접 지원폼 바로가기</LtbTxt>
+                  <Icon2 className={'material-symbols-outlined'}>arrow_forward</Icon2>
+                </Ltb>
+              </LeftContainer>
+              <RightContainer>
+                  <M>지원폼 공개까지 <br/></M>
+                  <B>{leftHour} : {leftMinute} : {leftSecond}</B> <Sb>남았어요!</Sb>
+              </RightContainer>
+          </Container>
+        </LastSection>
+
         <Footer />
       </Layout>
     </>

@@ -60,6 +60,7 @@ const Header = (
     <Layout navBar={nav}>
       <Box>
         <Image
+          onClick={props.sc0}
           src={nav ? LogoActive : Logo}
           alt="Logo"
           width={77}

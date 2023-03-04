@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import Image from "next/image";
 import Logo from "../assets/logo.svg";
 import LogoActive from "../assets/logoActive.svg";
+import {useRouter} from "next/router";
+
 
 const Layout = styled.header`
   width: 100vw;
@@ -40,11 +42,11 @@ const Icon = styled.div`
 `;
 
 const HeaderV2 = () => {
+  const router = useRouter();
   return (
     <Layout>
       <Box>
-        <Image src={LogoActive} alt="Logo" width={77} height={20} />
-
+        <Image className="logo" onClick={() => router.push("/")} src={LogoActive} alt="Logo" width={77} height={20} />
         <ClubSelectButton>
           동아리 소개
           <Icon className="material-symbols-outlined">expand_more</Icon>
