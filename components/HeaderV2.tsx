@@ -47,7 +47,7 @@ const HeaderV2 = () => {
 
         <ClubSelectButton>
           동아리 소개
-          <Icon className="material-symbols-rounded">expand_more</Icon>
+          <Icon className="material-symbols-outlined">expand_more</Icon>
         </ClubSelectButton>
       </Box>
     </Layout>

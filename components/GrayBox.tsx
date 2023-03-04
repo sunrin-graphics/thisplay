@@ -18,8 +18,9 @@ const Parent = styled.div`
 `;
 
 const Child = styled.div`
-  width: 342px;
-  height: 90px;
+padding:24px;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,13 +35,13 @@ interface GrayBoxProps {
 
 const Name = styled.div`
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 600;
   color: #332c29;
 `;
 
 const Box1 = styled.div`
   display: flex;
-  height: 90px;
+  height: 100%;
   flex-direction: column;
   justify-content: space-between;
 `;
@@ -63,14 +64,28 @@ const BoxChild = styled.div`
   justify-content: space-between;
 `;
 
+const Icon = styled.div`
+  font-size: 20px;
+  color: #766A64;
+  font-weight: 600;
+;
+`
+
+const TitleAndButton = styled.div`
+  display: flex;
+  align-items: center;
+  gap:8px;
+`
+
 const GrayBox = ({ name, department, desc, logo }: GrayBoxProps) => {
   return (
     <Parent>
       <Child>
         <Box1>
-          <>
+          <TitleAndButton>
             <Name>{name}</Name>
-          </>
+            <Icon className="material-symbols-outlined">google_plus_reshare</Icon>
+          </TitleAndButton>
           <BoxChild>
             <Department>{department}</Department>
             <Desc>{desc}</Desc>

@@ -1,14 +1,15 @@
 import Head from "next/head";
-import React from "react";
+import React, {useRef} from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ClubList from "@/components/Club";
-import Question from "@/components/Question";
 import styled from "@emotion/styled";
 import Logo from "@/assets/logo.svg";
 import Image from "next/image";
 import logo from "../assets/character.png"
 import bottom from "../assets/bottom.png"
+import GrayBox from "@/components/GrayBox";
+import clubList, { ClubList } from "../data/clubInfo";
+import questionList from "@/data/questionData";
 
 const Layout = styled.div`
   width: 100vw;
@@ -84,8 +85,8 @@ const Text1 = styled.div`
 const ApplyButton = styled.button`
   background: none;
   margin-top: 48px;
-  width: 372px;
-  height: 60px;
+  padding: 16px 36px;
+  gap: 16px;
   border: 2px solid #ffffff;
   border-radius: 100px;
   font-weight: 700;
@@ -98,8 +99,9 @@ const ApplyButton = styled.button`
   transition: all 0.2s ease;
   cursor: pointer;
   &:hover {
-    background: #ffffff;
-    color: #468b99;
+    background-color: white;
+    color: #000; /* 텍스트 색상을 투명하게 설정 */
+    mix-blend-mode: screen;
   }
 `;
 
@@ -193,8 +195,164 @@ const IntroduceDesc = styled.div`
 const Section6 = styled.div`
   
 `
+const Parent = styled.div`
+  width: 100%;
+  height: 1008px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`
+
+const Child = styled.div`
+  width: 1218px;
+  height: 728px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const Emphasize = styled.div`
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+`
+
+const Title = styled.div`
+  font-size: 28px;
+  color: #332C29;
+  font-weight: 500;
+`
+
+const Desc = styled.div`
+  font-size: 20px;
+  color: #33251F;
+  opacity: 0.8;
+`
+
+const ClubParent = styled.div`
+  height: 624px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`
+
+const Mg = styled.div`
+  width: 390px;
+  height: 138px;
+  border-radius: 24px;
+  align-self: center;
+`
+
+const Parent2 = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 778px;
+`
+
+const Child2 = styled.div`
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap:32px;
+  align-items: center;
+`
+
+const Zone = styled.div`
+  gap:12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+`
+
+const Part = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+`
+
+const AutoBox = styled.div`
+  width: 282px;
+  height: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap:14px;
+  background-color: #F3F2F1;
+  border-radius: 20px;
+`
+
+const ParentBox = styled.div`
+  width: 282px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap:24px;
+`
+
+const Title2 = styled.div`
+  font-size: 18px;
+  font-weight: 500;
+  color: #332C29;
+`
+
+const Desc2 = styled.div`
+  color: #594E49;
+  line-height: 150%;
+  font-size: 16px;
+`
+
+const ZoneTitle = styled.div`
+  font-size: 28px;
+  color: #332C29;
+  font-weight: 500;
+`
+
+const ZoneDesc = styled.div`
+  font-size: 20px;
+  color: #33251F;
+  opacity: 0.8;
+`
+
+const Mg2 = styled.div`
+  width: 342px;
+  height: 24px;
+`
+
+const Icon2 = styled.span`
+  font-size:20px;
+  font-weight: 600;
+`
+
+
 
 export default function Home() {
+  const clubData: ClubList = clubList;
+  const ref1 = useRef();
+  const ref2 = useRef();
+  const ref3 = useRef();
+  const ref4 = useRef();
+  function gotoScroll(className:string) {
+    window.scrollTo({ behavior: 'smooth', top: ref1.current?.offsetTop - 70 })
+  }
+  function gotoScroll2(className:string) {
+    window.scrollTo({ behavior: 'smooth', top: ref2.current?.offsetTop+40 })
+  }
+  function gotoScroll3(className:string) {
+    window.scrollTo({ behavior: 'smooth', top: ref3.current?.offsetTop - 70 })
+  }
+  function gotoScroll4(className:string) {
+    window.scrollTo({ behavior: 'smooth', top: ref4.currentTop - 70 })
+  }
   return (
     <>
       <Head>
@@ -207,8 +365,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <Header />
-        <Section1>
+        <Header
+          sc1={gotoScroll}
+          sc2={gotoScroll2}
+          sc3={gotoScroll3}
+          sc4={gotoScroll4}
+        />
+        <Section1 ref={ref1}>
           <Video muted autoPlay loop>
             <source src="video/MainVideo.mp4" type="video/mp4" />
             <strong>Your browser does not support the video tag.</strong>
@@ -325,10 +488,10 @@ export default function Home() {
                 </defs>
               </svg>
             </SpaceBetweenV2>
-            <ApplyButton>동아리 신청 마감까지 00 : 00 : 00</ApplyButton>
+            <ApplyButton>동아리 신청 마감까지 00 : 00 : 00 <Icon2 className={'material-symbols-outlined'}>arrow_forward</Icon2> </ApplyButton>
           </Views>
         </Section1>
-        <Section2>
+        <Section2 >
           <Section2Body>
             <Section2Border />
             <Section2Text>
@@ -339,7 +502,7 @@ export default function Home() {
             <Section2Border />
           </Section2Body>
         </Section2>
-        <Section3>
+        <Section3 >
           <Section3Body>
             <Section3Introduce>
               <IntroduceTitle>
@@ -361,15 +524,66 @@ export default function Home() {
           </Section3Body>
         </Section3>
 
-        <ClubList />
-        <Question />
+        <Parent ref={ref2}>
+          <Child>
+            <Emphasize>
+              <Title>
+                동아리 목록
+              </Title>
+              <Desc>
+                시연회에 함께한 동아리들을 알아보세요!
+              </Desc>
+            </Emphasize>
+            <ClubParent>
+              {
+                clubData.map((club) => (
+                    <>
+                      {club.id === 10 && <Mg/>}
+                      <div key={club.id}>
+                        <GrayBox
+                            name={club.name}
+                            department={club.department}
+                            desc={club.desc}
+                            logo={club.logo}
+                        />
+                      </div>
+                      {club.id === 10 && <Mg/>}
+                    </>
+                ))
+              }
+            </ClubParent>
+          </Child>
+        </Parent>
+        <Parent2 ref={ref3}>
+          <Child2>
+            <Zone>
+              <ZoneTitle>
+                질문과 답변
+              </ZoneTitle>
+              <ZoneDesc>
+                많이하는 질문에 대한 답변들을 모아봤어요!
+              </ZoneDesc>
+            </Zone>
+            <Part>
+              {[...Array(4)].map((_, i) => (
+                  <ParentBox key={i}>
+                    {[...Array(2)].map((_, j) => {
+                      const question = questionList[(i * 2) + j];
+                      return (
+                          <>
 
-        {/* <Section6>
-
-        </Section6> */}
-
-        {/* <Image src={bottom} alt="image" width={1920} height={462} /> */}
-
+                            <AutoBox key={i + j}>
+                              <Title2>{question.title}</Title2>
+                              <Desc2 dangerouslySetInnerHTML={{ __html: question.desc }}></Desc2>
+                            </AutoBox>
+                          </>
+                      );
+                    })}
+                  </ParentBox>
+              ))}
+            </Part>
+          </Child2>
+        </Parent2>
         <Footer />
       </Layout>
     </>

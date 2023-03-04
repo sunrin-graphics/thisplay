@@ -165,7 +165,7 @@ export default function Edcan() {
           <Wrapper>
             <Row>
               <BackAndClub>
-                <BackIcon className="material-symbols-rounded">
+                <BackIcon className="material-symbols-outlined">
                   arrow_back_ios
                 </BackIcon>
                 EDCAN

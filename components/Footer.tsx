@@ -43,6 +43,13 @@ const ContentC = styled.span`
   line-height: 150%;
   color: rgba(51, 32, 24, 0.65);
   cursor: pointer;
+  display: flex;
+  gap:6px;
+  align-items: center;
+  &:hover {
+    text-decoration: underline;
+    filter: brightness(0.9);
+  }
 `;
 
 const Bold = styled.span`
@@ -54,7 +61,7 @@ const Footer = () => {
     <Layout>
       <Box>
         <Column>
-          <Image src={LogoActive} alt="logo" width={273} height={20} />
+          <Image src={LogoActive} alt="logo" width={272} height={24} />
           <Contents>
             <Content>© 2023 선린인터넷고등학교 콘텐츠디자인과</Content>
             <Content>서울특별시 용산구 원효로97길 33-4 3호관 2층</Content>
@@ -93,6 +100,12 @@ const Footer = () => {
                 )
               }
             >
+              <Image
+                  src={"/images/instagram.svg"}
+                  width={20}
+                  height={20}
+                  alt="페이스북"
+              />
               시연회 인스타그램
             </ContentC>
             <ContentC
@@ -103,6 +116,12 @@ const Footer = () => {
                 )
               }
             >
+              <Image
+                src={"/images/facebook.svg"}
+                width={20}
+                height={20}
+                alt="페이스북"
+              />
               시연회 페이스북
             </ContentC>
           </Contents>
