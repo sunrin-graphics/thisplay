@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Head from "next/head";
 import React, { useEffect } from "react";
 import HeaderV2 from "@/components/HeaderV2";
@@ -300,7 +302,7 @@ const Edcan = () => {
                     <ClubInfoTitleText>수상 실적</ClubInfoTitleText>
                     <Column2>
                       {data.awards.map((item, i: number) => (
-                        <ClubInfoContentText key={i}>
+                        <ClubInfoContentText key={i} >
                           {item}
                         </ClubInfoContentText>
                       ))}

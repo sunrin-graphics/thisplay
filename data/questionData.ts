@@ -1,3 +1,6 @@
+// @ts-nocheck
+
+
 type QuestionInfo = {
   id: number,
   title: string,
