@@ -1,6 +1,5 @@
 // @ts-nocheck
 
-
 import styled from "@emotion/styled";
 import Image from "next/image";
 import Logo from "../assets/logo.svg";
@@ -18,6 +17,9 @@ const Header = (props: any) => {
       window.addEventListener("scroll", () =>
         setNav(window.scrollY > 100 ? true : false)
       );
+      if (window.scrollY > 100) {
+        setNav(true);
+      }
     }
   }, []);
 
@@ -72,8 +74,8 @@ const Header = (props: any) => {
       opacity: 0.5;
     }
     @media (max-width: 1300px) {
-    ${(props) => props.hideOnSmall && "display: none;"}
-  }
+      ${(props) => props.hideOnSmall && "display: none;"}
+    }
   `;
 
   const Title = styled.div`
@@ -157,11 +159,11 @@ const Header = (props: any) => {
     }
   }, []);
 
-  const [i1, setI1] = useState("시연회 소개")
-  const [i2, setI2] = useState("동아리 목록")
+  const [i1, setI1] = useState("시연회 소개");
+  const [i2, setI2] = useState("동아리 목록");
 
-  const [i3, setI3] = useState("질문과 답변")
-  
+  const [i3, setI3] = useState("질문과 답변");
+
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
@@ -179,8 +181,7 @@ const Header = (props: any) => {
       setI1("소개");
       setI2("목록");
       setI3("QnA");
-    }
-    else {
+    } else {
       setI1("시연회 소개");
       setI2("동아리 목록");
       setI3("질문과 답변");
@@ -196,12 +197,15 @@ const Header = (props: any) => {
           alt="Logo"
           width={77}
           height={20}
+          style={{ cursor: "pointer" }}
         />
         <List>
           <LinkStyled onClick={props.sc1}>{i1}</LinkStyled>
           <LinkStyled onClick={props.sc2}>{i2}</LinkStyled>
           <LinkStyled onClick={props.sc3}>{i3}</LinkStyled>
-          <LinkStyled hideOnSmall={true} onClick={props.sc4}>지원하기</LinkStyled>
+          <LinkStyled hideOnSmall={true} onClick={props.sc4}>
+            지원하기
+          </LinkStyled>
         </List>
         <Column23>
           <ClubSelectButton onClick={() => changeModal()}>
@@ -243,7 +247,7 @@ const Layout = styled.header<{ navBar: boolean }>`
   width: 100vw;
   height: 60px;
   background-color: ${(props) => (props.navBar ? "#ffffff" : "transparent")};
-  transition: all 0.8s ease;
+  transition: background-color 0.8s ease;
   display: flex;
   justify-content: center;
   align-items: center;

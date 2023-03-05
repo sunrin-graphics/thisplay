@@ -15,10 +15,13 @@ const Parent = styled.div`
   &:hover {
     transform: scale(1.03);
   }
+  @media (max-width: 1300px) {
+    width: 320px;
+  }
 `;
 
 const Child = styled.div`
-padding:24px;
+  padding: 24px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -66,16 +69,15 @@ const BoxChild = styled.div`
 
 const Icon = styled.div`
   font-size: 20px;
-  color: #766A64;
+  color: #766a64;
   font-weight: 600;
-;
-`
+`;
 
 const TitleAndButton = styled.div`
   display: flex;
   align-items: center;
-  gap:8px;
-`
+  gap: 8px;
+`;
 
 const GrayBox = ({ name, department, desc, logo }: GrayBoxProps) => {
   return (
@@ -84,7 +86,9 @@ const GrayBox = ({ name, department, desc, logo }: GrayBoxProps) => {
         <Box1>
           <TitleAndButton>
             <Name>{name}</Name>
-            <Icon className="material-symbols-outlined">google_plus_reshare</Icon>
+            <Icon className="material-symbols-outlined">
+              google_plus_reshare
+            </Icon>
           </TitleAndButton>
           <BoxChild>
             <Department>{department}</Department>

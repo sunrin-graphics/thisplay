@@ -225,10 +225,6 @@ const Edcan = () => {
   const clubData: ClubList = clubList;
   const data = clubData.find((club) => club.id === Number(id));
 
-  useEffect(() => {
-    if (data) console.log(data);
-  }, [data]);
-
   return (
     <>
       <Head>
@@ -302,7 +298,7 @@ const Edcan = () => {
                     <ClubInfoTitleText>수상 실적</ClubInfoTitleText>
                     <Column2>
                       {data.awards.map((item, i: number) => (
-                        <ClubInfoContentText key={i} >
+                        <ClubInfoContentText key={i}>
                           {item}
                         </ClubInfoContentText>
                       ))}

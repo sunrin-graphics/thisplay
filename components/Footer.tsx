@@ -9,6 +9,10 @@ const Layout = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 550px) {
+    height: auto;
+    padding: 32px 0;
+  }
 `;
 
 const Box = styled.div`
@@ -16,18 +20,41 @@ const Box = styled.div`
   display: flex;
   align-content: center;
   justify-content: space-between;
+  @media (max-width: 1300px) {
+    width: 940px;
+  }
+  @media (max-width: 550px) {
+    width: 350px;
+    flex-direction: column;
+  }
 `;
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  @media (max-width: 550px) {
+    margin-bottom: 24px;
+  }
 `;
 
 const Contents = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
+`;
+
+const Contents3 = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  @media (max-width: 550px) {
+    flex-direction: row;
+  }
+`;
+const Contents2 = styled.div`
+  display: flex;
+  gap: 24px;
 `;
 
 const Content = styled.span`
@@ -44,7 +71,7 @@ const ContentC = styled.span`
   color: rgba(51, 32, 24, 0.65);
   cursor: pointer;
   display: flex;
-  gap:6px;
+  gap: 6px;
   align-items: center;
   &:hover {
     text-decoration: underline;
@@ -69,14 +96,14 @@ const Footer = () => {
         </Column>
         <Column>
           <Content>시연회 준비</Content>
-          <Contents>
+          <Contents3>
             <Content>
               <Bold>박정우 백시현 주현명</Bold>
             </Content>
             <Content>
               <Bold>김한비 표한빈 이하람 오지후</Bold>
             </Content>
-          </Contents>
+          </Contents3>
         </Column>
         <Column>
           <Content>웹사이트</Content>
@@ -91,7 +118,7 @@ const Footer = () => {
         </Column>
         <Column>
           <Content>바로가기</Content>
-          <Contents>
+          <Contents2>
             <ContentC
               onClick={() =>
                 window.open(
@@ -101,10 +128,10 @@ const Footer = () => {
               }
             >
               <Image
-                  src={"/images/instagram.svg"}
-                  width={20}
-                  height={20}
-                  alt="페이스북"
+                src={"/images/instagram.svg"}
+                width={20}
+                height={20}
+                alt="페이스북"
               />
               시연회 인스타그램
             </ContentC>
@@ -124,7 +151,7 @@ const Footer = () => {
               />
               시연회 페이스북
             </ContentC>
-          </Contents>
+          </Contents2>
         </Column>
       </Box>
     </Layout>

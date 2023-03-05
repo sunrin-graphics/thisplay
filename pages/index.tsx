@@ -8,13 +8,15 @@ import styled from "@emotion/styled";
 import Logo from "@/assets/logo.svg";
 import Help from "@/assets/help.svg";
 import Image from "next/image";
-import logo from "../assets/character.png"
-import bottom from "../assets/expand_more.svg"
+import logo from "../assets/character.png";
+import bottom from "../assets/expand_more.svg";
 import GrayBox from "@/components/GrayBox";
 import clubList, { ClubList } from "../data/clubInfo";
 import questionList from "@/data/questionData";
-import { useRef, useState, useEffect } from 'react';
-import {useRouter} from "next/router";
+import { useRef, useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 const Layout = styled.div`
   width: 100vw;
@@ -26,7 +28,7 @@ const Layout = styled.div`
 const LtbTxt = styled.span`
   font-size: 18px;
   margin-right: 4px;
-`
+`;
 
 const IntroduceHelp = styled.div`
   position: relative;
@@ -41,7 +43,7 @@ const IntroduceHelp = styled.div`
     height: 90px;
     margin-top: 24px;
   }
-`
+`;
 
 const Section1 = styled.div`
   width: 100%;
@@ -117,7 +119,7 @@ const Views = styled.div`
     left: 42px;
   }
   @media (max-width: 550px) {
-    width: 600px;
+    width: auto;
     left: 20px;
   }
   display: block;
@@ -139,7 +141,7 @@ const Hid = styled.div`
   @media (max-width: 1300px) {
     display: none;
   }
-`
+`;
 
 const ApplyButton = styled.button`
   background: none;
@@ -182,7 +184,7 @@ const FixedCenter = styled.div`
   height: 52px;
   display: flex;
   justify-content: center;
-`
+`;
 
 const BottomFixed = styled.div`
   display: flex;
@@ -194,11 +196,11 @@ const BottomFixed = styled.div`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-`
+`;
 
 const Txt = styled.div`
   color: white;
-`
+`;
 
 const Section2Body = styled.div`
   width: 1200px;
@@ -208,10 +210,10 @@ const Section2Body = styled.div`
   justify-content: center;
   flex-direction: column;
   @media (max-width: 1300px) {
-    width: 600px;
+    max-width: 940px;
   }
   @media (max-width: 550px) {
-    width: 250px;
+    width: 100%;
   }
 `;
 
@@ -234,6 +236,7 @@ const Section2Text = styled.div`
   }
   @media (max-width: 550px) {
     font-size: 17px;
+    width: 100%;
   }
 `;
 
@@ -261,12 +264,12 @@ const Section3Body = styled.div`
   justify-content: space-between;
   align-items: center;
   @media (max-width: 1300px) {
-    width: calc(100% - 40px);
+    max-width: 940px;
     left: 20px;
     height: 602px;
   }
-  @media (max-width: 750px) {
-    width: calc(100% - 40px);
+  @media (max-width: 550px) {
+    width: 350px;
     flex-direction: column;
     height: 881px;
     left: 20px;
@@ -283,8 +286,8 @@ const Section3Introduce = styled.div`
     width: calc(100% - 20px);
     height: 355px;
   }
-  @media (max-width: 850px) {
-    width: calc(100% - 20px);
+  @media (max-width: 550px) {
+    width: 100%;
     height: 395px;
   }
 `;
@@ -295,6 +298,9 @@ const Section3Illu = styled.div`
   background-color: #f3f2f1;
   border-radius: 48px;
   transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:hover {
     transform: scale(1.03);
   }
@@ -302,6 +308,10 @@ const Section3Illu = styled.div`
     width: 290px;
     height: 364px;
     margin-top: 24px;
+  }
+  @media (max-width: 850px) {
+    width: 100%;
+    height: 440px;
   }
 `;
 
@@ -333,7 +343,10 @@ const Parent = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-`
+  @media (max-width: 1300px) {
+    height: 1054px;
+  }
+`;
 
 const LastSection = styled.div`
   width: 100%;
@@ -341,8 +354,13 @@ const LastSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
-`
+  background-image: url("/images/main_bottom_img.png");
+  background-size: cover;
+  background-position: center;
+  @media (max-width: 550px) {
+    display: none;
+  }
+`;
 
 const Container = styled.div`
   width: 1200px;
@@ -350,16 +368,23 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
+  @media (max-width: 1300px) {
+    width: 940px;
+    height: 241px;
+  }
+`;
 
 const LeftContainer = styled.div`
   width: 464px;
-  height: 214px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: white;
-`
+  @media (max-width: 1300px) {
+    width: 329px;
+  }
+`;
 
 const Ltt = styled.div`
   width: 100%;
@@ -367,7 +392,10 @@ const Ltt = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`
+  @media (max-width: 1300px) {
+    height: 157px;
+  }
+`;
 
 const Ltb = styled.div`
   width: 230px;
@@ -384,17 +412,17 @@ const Ltb = styled.div`
     color: #000;
     mix-blend-mode: screen;
   }
-`
+`;
 
 const LttDesc = styled.div`
   font-size: 18px;
   line-height: 150%;
-`
+`;
 
 const LttCaution = styled.div`
   font-size: 14px;
-  color: #F3F2F1;
-`
+  color: #f3f2f1;
+`;
 
 const RightContainer = styled.div`
   width: 555px;
@@ -403,24 +431,27 @@ const RightContainer = styled.div`
   font-size: 48px;
   color: white;
   text-align: right;
-`
+  @media (max-width: 1300px) {
+    font-size: 38px;
+  }
+`;
 
 const M = styled.span`
   font-weight: 400;
-`
+`;
 
 const B = styled.span`
   font-weight: 600;
-`
+`;
 
 const Sb = styled.span`
   font-weight: 500;
-`
+`;
 
 const LttTitle = styled.div`
   font-size: 28px;
   font-weight: 500;
-`
+`;
 
 const Child = styled.div`
   width: 1218px;
@@ -429,7 +460,14 @@ const Child = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-`
+  @media (max-width: 1300px) {
+    width: 660px;
+    height: 886px;
+  }
+  @media (max-width: 850px) {
+    width: 100%;
+  }
+`;
 
 const Emphasize = styled.div`
   width: 100%;
@@ -438,34 +476,47 @@ const Emphasize = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-`
+`;
 
 const Title = styled.div`
   font-size: 28px;
-  color: #332C29;
+  color: #332c29;
   font-weight: 500;
-`
+`;
 
 const Desc = styled.div`
   font-size: 20px;
-  color: #33251F;
+  color: #33251f;
   opacity: 0.8;
-`
+`;
 
 const ClubParent = styled.div`
-  height: 624px;
   display: flex;
-  align-items: center;
+  gap: 20px;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-`
+  @media (max-width: 1300px) {
+    height: 770px;
+  }
+  @media (max-width: 850px) {
+    display: none;
+  }
+`;
 
 const Mg = styled.div`
   width: 390px;
   height: 138px;
   border-radius: 24px;
   align-self: center;
-`
+`;
+
+const CImage = styled(Image)`
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+`;
 
 const Parent2 = styled.div`
   width: 100%;
@@ -473,30 +524,45 @@ const Parent2 = styled.div`
   align-items: center;
   justify-content: center;
   height: 778px;
-`
+  @media (max-width: 1300px) {
+    height: 804px;
+  }
+`;
 
 const Child2 = styled.div`
   width: 1200px;
   display: flex;
   flex-direction: column;
-  gap:32px;
+  gap: 32px;
   align-items: center;
-`
+  @media (max-width: 1300px) {
+    width: 940px;
+  }
+`;
 
 const Zone = styled.div`
-  gap:12px;
+  gap: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-`
+`;
 
 const Part = styled.div`
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
   justify-content: space-between;
   align-items: flex-start;
-`
+  @media (max-width: 1300px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 550px) {
+    display: none;
+  }
+`;
 
 const AutoBox = styled.div`
   width: 282px;
@@ -504,52 +570,55 @@ const AutoBox = styled.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
-  gap:14px;
-  background-color: #F3F2F1;
+  gap: 14px;
+  background-color: #f3f2f1;
   border-radius: 20px;
-`
+  @media (max-width: 1300px) {
+    width: 303px;
+  }
+`;
 
 const ParentBox = styled.div`
   width: 282px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap:24px;
-`
+  gap: 24px;
+`;
 
 const Title2 = styled.div`
   font-size: 18px;
   font-weight: 500;
-  color: #332C29;
-`
+  color: #332c29;
+`;
 
 const Desc2 = styled.div`
-  color: #594E49;
+  color: #594e49;
   line-height: 150%;
   font-size: 16px;
-`
+`;
 
 const ZoneTitle = styled.div`
   font-size: 28px;
-  color: #332C29;
+  color: #332c29;
   font-weight: 500;
-`
+`;
 
 const ZoneDesc = styled.div`
   font-size: 20px;
-  color: #33251F;
+  color: #33251f;
   opacity: 0.8;
-`
+`;
 
 const Mg2 = styled.div`
   width: 342px;
   height: 24px;
-`
+`;
 
 const Icon2 = styled.span`
-  font-size:20px;
+  font-size: 20px;
   font-weight: 600;
-`
+`;
 
 export default function Home() {
   const clubData: ClubList = clubList;
@@ -562,66 +631,75 @@ export default function Home() {
 
   const refDown = useRef<HTMLDivElement>(null);
 
-  function gotoScroll0(className:string) {
-    if(ref0 !== null) {
-      const {offsetTop} = ref0.current as any;
-      window.scrollTo({behavior: 'smooth', top: offsetTop})
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (localStorage.getItem("sc") !== null)
+        window.scrollTo({
+          top: localStorage.getItem("sc"),
+        });
+      localStorage.removeItem("sc");
+    }
+  }, []);
+  function gotoScroll0(className: string) {
+    if (ref0 !== null) {
+      const { offsetTop } = ref0.current as any;
+      window.scrollTo({ behavior: "smooth", top: offsetTop });
     }
   }
 
-  function gotoScrollDown(className:string) {
-    if(refDown !== null) {
-      const {offsetTop} = refDown.current as any;
-      window.scrollTo({behavior: 'smooth', top: offsetTop - 120})
+  function gotoScrollDown(className: string) {
+    if (refDown !== null) {
+      const { offsetTop } = refDown.current as any;
+      window.scrollTo({ behavior: "smooth", top: offsetTop - 120 });
     }
   }
 
-  function gotoScroll(className:string) {
-    if(ref1 !== null) {
-      const {offsetTop} = ref1.current as any;
-      window.scrollTo({behavior: 'smooth', top: offsetTop - 70})
+  function gotoScroll(className: string) {
+    if (ref1 !== null) {
+      const { offsetTop } = ref1.current as any;
+      window.scrollTo({ behavior: "smooth", top: offsetTop - 70 });
     }
   }
 
-  function gotoScroll2(className:string) {
-    if(ref2 !== null) {
-      const {offsetTop} = ref2.current as any;
-      window.scrollTo({behavior: 'smooth', top: offsetTop + 40})
+  function gotoScroll2(className: string) {
+    if (ref2 !== null) {
+      const { offsetTop } = ref2.current as any;
+      window.scrollTo({ behavior: "smooth", top: offsetTop + 40 });
     }
   }
 
-  function gotoScroll3(className:string) {
-    if(ref3 !== null) {
-      const {offsetTop} = ref3.current as any;
-      window.scrollTo({behavior: 'smooth', top: offsetTop - 70})
+  function gotoScroll3(className: string) {
+    if (ref3 !== null) {
+      const { offsetTop } = ref3.current as any;
+      window.scrollTo({ behavior: "smooth", top: offsetTop - 70 });
     }
   }
 
-  function gotoScroll4(className:string) {
-    if(ref4 !== null) {
-      const {offsetTop} = ref4.current as any;
-      window.scrollTo({behavior: 'smooth', top: offsetTop - 70})
+  function gotoScroll4(className: string) {
+    if (ref4 !== null) {
+      const { offsetTop } = ref4.current as any;
+      window.scrollTo({ behavior: "smooth", top: offsetTop - 70 });
     }
   }
 
-  const [leftHour, setLeftHour] = useState('00');
-  const [leftMinute, setLeftMinute] = useState('00');
-  const [leftSecond, setLeftSecond] = useState('00');
+  const [leftHour, setLeftHour] = useState("00");
+  const [leftMinute, setLeftMinute] = useState("00");
+  const [leftSecond, setLeftSecond] = useState("00");
 
   const router = useRouter();
 
   useEffect(() => {
     // const targetTime = new Date('2023-03-11T00:00:00.000Z').getTime();
-    const targetTime = new Date('2023-03-06T07:00:00.000Z').getTime();
-    
+    const targetTime = new Date("2023-03-06T07:00:00.000Z").getTime();
+
     const updateLeftTime = () => {
       const now = new Date().getTime();
-      const distance = (targetTime  - 1000 * 60 * 60 * 9)- now;
+      const distance = targetTime - 1000 * 60 * 60 * 9 - now;
 
       if (distance <= 0) {
-        setLeftHour('00');
-        setLeftMinute('00');
-        setLeftSecond('00');
+        setLeftHour("00");
+        setLeftMinute("00");
+        setLeftSecond("00");
         return;
       }
 
@@ -629,9 +707,9 @@ export default function Home() {
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      setLeftHour(hours.toString().padStart(2, '0'));
-      setLeftMinute(minutes.toString().padStart(2, '0'));
-      setLeftSecond(seconds.toString().padStart(2, '0'));
+      setLeftHour(hours.toString().padStart(2, "0"));
+      setLeftMinute(minutes.toString().padStart(2, "0"));
+      setLeftSecond(seconds.toString().padStart(2, "0"));
     };
 
     const intervalId = setInterval(updateLeftTime, 1000);
@@ -649,10 +727,10 @@ export default function Home() {
 
   const [introTxt, setIntroTxt] = useState(
     "콘텐츠디자인과 시연회는 2020년부터 매년 신입생들을 위해 준비하는 행사예요. <br />" +
-    "시연회를 통해 신입생들은 앞서 입학한 선배들의 작품을 감상하고, <br />" +
-    "앞으로의 동아리 선택부터 콘텐츠디자인과 생활까지에 대해 힌트를 얻을 수 있어요! <br />"
-  )
-  
+      "시연회를 통해 신입생들은 앞서 입학한 선배들의 작품을 감상하고, <br />" +
+      "앞으로의 동아리 선택부터 콘텐츠디자인과 생활까지에 대해 힌트를 얻을 수 있어요! <br />"
+  );
+
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
@@ -669,16 +747,15 @@ export default function Home() {
     if (width <= 850) {
       setIntroTxt(
         "콘텐츠디자인과 시연회는 2020년부터<br/>매년 신입생들을 위해 준비하는 행사예요. <br /><br />" +
-        "시연회를 통해 신입생들은 앞서 입학한 선배들의<br/작품을 감상하고, 앞으로의 동아리 선택부터<br/>" + 
-        "콘텐츠디자인과 생활까지에 대해 힌트를 얻을 수 있어요!"
-      )
-    }
-    else {
+          "시연회를 통해 신입생들은 앞서 입학한 선배들의<br/작품을 감상하고, 앞으로의 동아리 선택부터<br/>" +
+          "콘텐츠디자인과 생활까지에 대해 힌트를 얻을 수 있어요!"
+      );
+    } else {
       setIntroTxt(
         "콘텐츠디자인과 시연회는 2020년부터 매년 신입생들을 위해 준비하는 행사예요. <br />" +
-        "시연회를 통해 신입생들은 앞서 입학한 선배들의 작품을 감상하고, <br />" +
-        "앞으로의 동아리 선택부터 콘텐츠디자인과 생활까지에 대해 힌트를 얻을 수 있어요! <br />"
-      )
+          "시연회를 통해 신입생들은 앞서 입학한 선배들의 작품을 감상하고, <br />" +
+          "앞으로의 동아리 선택부터 콘텐츠디자인과 생활까지에 대해 힌트를 얻을 수 있어요! <br />"
+      );
     }
   }, [width]);
 
@@ -716,15 +793,14 @@ export default function Home() {
             </SpaceBetween>
             <SpaceBetween>
               <PageTitle>당신을 초대합니다!</PageTitle>
-                <Line />
-                <Text1>
-                  2023년 3월 10일 7교시
-                  <br />
-                  콘텐츠디자인과 실습실
-                </Text1>
+              <Line />
+              <Text1>
+                2023년 3월 10일 7교시
+                <br />
+                콘텐츠디자인과 실습실
+              </Text1>
             </SpaceBetween>
-            <SpaceBetweenV2
-            >
+            <SpaceBetweenV2>
               <svg
                 width="160"
                 height="72"
@@ -794,7 +870,10 @@ export default function Home() {
                       colorInterpolationFilters="sRGB"
                     >
                       <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                      <feGaussianBlur in="BackgroundImageFix" stdDeviation="12" />
+                      <feGaussianBlur
+                        in="BackgroundImageFix"
+                        stdDeviation="12"
+                      />
                       <feComposite
                         in2="SourceAlpha"
                         operator="in"
@@ -819,13 +898,18 @@ export default function Home() {
                 </svg>
               </Hid>
             </SpaceBetweenV2>
-            <ApplyButton>동아리 신청 마감까지 {leftHour} : {leftMinute} : {leftSecond} <Icon2 className={'material-symbols-outlined'}>arrow_forward</Icon2> </ApplyButton>
+            <ApplyButton>
+              동아리 신청 마감까지 {leftHour} : {leftMinute} : {leftSecond}{" "}
+              <Icon2 className={"material-symbols-outlined"}>
+                arrow_forward
+              </Icon2>{" "}
+            </ApplyButton>
           </Views>
           <FixedCenter>
             <div onClick={gotoScrollDown}>
               <BottomFixed>
                 <Txt>스크롤해서 더 알아보세요</Txt>
-                <Image src={bottom} width={24} height={24} alt="logo"/>
+                <Image src={bottom} width={24} height={24} alt="logo" />
               </BottomFixed>
             </div>
           </FixedCenter>
@@ -848,72 +932,72 @@ export default function Home() {
                 콘텐츠디자인과 <br />
                 시연회가 무엇인가요?
               </IntroduceTitle>
-              <IntroduceDesc dangerouslySetInnerHTML={{__html: introTxt}} />
+              <IntroduceDesc dangerouslySetInnerHTML={{ __html: introTxt }} />
               <IntroduceHelp>
-                <Image src={Help} alt="image" /> 
+                <Image src={Help} alt="image" />
               </IntroduceHelp>
             </Section3Introduce>
             <Section3Illu>
-              <Image src={logo} alt="image" width={100} height={100} />
+              <CImage src={logo} alt="image" />
             </Section3Illu>
           </Section3Body>
         </Section3>
-
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={3}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+          <SwiperSlide>Slide 1</SwiperSlide>
+          <SwiperSlide>Slide 2</SwiperSlide>
+          <SwiperSlide>Slide 3</SwiperSlide>
+          <SwiperSlide>Slide 4</SwiperSlide>
+          ...
+        </Swiper>
         <Parent ref={ref2}>
           <Child>
             <Emphasize>
-              <Title>
-                동아리 목록
-              </Title>
-              <Desc>
-                시연회에 함께한 동아리들을 알아보세요!
-              </Desc>
+              <Title>동아리 목록</Title>
+              <Desc>시연회에 함께한 동아리들을 알아보세요!</Desc>
             </Emphasize>
             <ClubParent>
-              {
-                clubData.map((club) => (
-                    <>
-                      {club.id === 10 && <Mg/>}
-                      <div key={club.id} onClick={() => router.push(`/clubs/${club.id}`)}>
-                        <GrayBox
-                            name={club.name}
-                            department={club.department}
-                            desc={club.desc}
-                            logo={club.logo}
-                        />
-                      </div>
-                      {club.id === 10 && <Mg/>}
-                    </>
-                ))
-              }
+              {clubData.map((club) => (
+                <>
+                  <div
+                    key={club.id}
+                    onClick={() => {
+                      localStorage.setItem("sc", window.scrollY);
+                      router.push(`/clubs/${club.id}`);
+                    }}
+                  >
+                    <GrayBox
+                      name={club.name}
+                      department={club.department}
+                      desc={club.desc}
+                      logo={club.logo}
+                    />
+                  </div>
+                </>
+              ))}
             </ClubParent>
           </Child>
         </Parent>
         <Parent2 ref={ref3}>
           <Child2>
             <Zone>
-              <ZoneTitle>
-                질문과 답변
-              </ZoneTitle>
-              <ZoneDesc>
-                많이하는 질문에 대한 답변들을 모아봤어요!
-              </ZoneDesc>
+              <ZoneTitle>질문과 답변</ZoneTitle>
+              <ZoneDesc>많이하는 질문에 대한 답변들을 모아봤어요!</ZoneDesc>
             </Zone>
             <Part>
-              {[...Array(4)].map((_, i) => (
-                  <ParentBox key={i}>
-                    {[...Array(2)].map((_, j) => {
-                      const question = questionList[(i * 2) + j];
-                      return (
-                          <>
-                            <AutoBox key={i + j}>
-                              <Title2>{question.title}</Title2>
-                              <Desc2 dangerouslySetInnerHTML={{ __html: question.desc }}></Desc2>
-                            </AutoBox>
-                          </>
-                      );
-                    })}
-                  </ParentBox>
+              {questionList.map((question, i) => (
+                <>
+                  <AutoBox key={i}>
+                    <Title2>{question.title}</Title2>
+                    <Desc2
+                      dangerouslySetInnerHTML={{ __html: question.desc }}
+                    ></Desc2>
+                  </AutoBox>
+                </>
               ))}
             </Part>
           </Child2>
@@ -921,29 +1005,35 @@ export default function Home() {
 
         <LastSection ref={ref4}>
           <Container>
-              <LeftContainer>
-                <Ltt>
-                  <LttTitle>
-                    즐거운 시연회 관람 되셨나요?
-                  </LttTitle>
-                  <LttDesc>
-                    이제 우리들의 놀이터에 당신을 초대합니다. <br/>
-                    면접 지원을 통해 여러분이 함께 하고 싶은 동아리를 선택해주세요!
-                  </LttDesc>
-                  <LttCaution>
-                    * 3월 11일부터 12일까지 지원폼이 공개됩니다.
-                  </LttCaution>
-                </Ltt>
-                <Ltb>
-                  <LtbTxt>면접 지원폼 바로가기</LtbTxt>
-                  <Icon2 className={'material-symbols-outlined'}>arrow_forward</Icon2>
-                </Ltb>
-              </LeftContainer>
-              <RightContainer>
-                  {/* <M>지원폼 공개까지 <br/></M> */}
-                  <M>시연회 홈페이지 마감까지 <br/></M>
-                  <B>{leftHour} : {leftMinute} : {leftSecond}</B> <Sb>남았어요?</Sb>
-              </RightContainer>
+            <LeftContainer>
+              <Ltt>
+                <LttTitle>즐거운 시연회 관람 되셨나요?</LttTitle>
+                <LttDesc>
+                  이제 우리들의 놀이터에 당신을 초대합니다. <br />
+                  면접 지원을 통해 여러분이 함께 하고 싶은 동아리를
+                  선택해주세요!
+                </LttDesc>
+                <LttCaution>
+                  * 3월 11일부터 12일까지 지원폼이 공개됩니다.
+                </LttCaution>
+              </Ltt>
+              <Ltb>
+                <LtbTxt>면접 지원폼 바로가기</LtbTxt>
+                <Icon2 className={"material-symbols-outlined"}>
+                  arrow_forward
+                </Icon2>
+              </Ltb>
+            </LeftContainer>
+            <RightContainer>
+              {/* <M>지원폼 공개까지 <br/></M> */}
+              <M>
+                시연회 홈페이지 마감까지 <br />
+              </M>
+              <B>
+                {leftHour} : {leftMinute} : {leftSecond}
+              </B>{" "}
+              <Sb>남았어요?</Sb>
+            </RightContainer>
           </Container>
         </LastSection>
 
