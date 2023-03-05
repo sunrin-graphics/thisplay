@@ -10,18 +10,22 @@ import Link from "next/link";
 import { keyframes } from "@emotion/react";
 
 const Header = (props: any) => {
-  const [nav, setNav] = React.useState(false);
+  const [nav, setNav] = React.useState(true);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", () =>
-        setNav(window.scrollY > 100 ? true : false)
-      );
-      if (window.scrollY > 100) {
-        setNav(true);
+    if (props.isDetail === true) {
+      setNav(true);
+    } else {
+      if (typeof window !== "undefined") {
+        window.addEventListener("scroll", () =>
+          setNav(window.scrollY > 100 ? true : false)
+        );
+        if (window.scrollY > 100) {
+          setNav(true);
+        }
       }
     }
-  }, []);
+  }, [props.isDetail]);
 
   const ClubSelectButton = styled.button`
     height: 40px;
@@ -199,7 +203,7 @@ const Header = (props: any) => {
           height={20}
           style={{ cursor: "pointer" }}
         />
-        <List>
+        <List isDetail={props.isDetail}>
           <LinkStyled onClick={props.sc1}>{i1}</LinkStyled>
           <LinkStyled onClick={props.sc2}>{i2}</LinkStyled>
           <LinkStyled onClick={props.sc3}>{i3}</LinkStyled>
@@ -272,11 +276,12 @@ const Box = styled.div`
 `;
 
 const List = styled.ul`
-  display: flex;
+  display: ${(props) => (props.isDetail ? "none" : "flex")};
   justify-content: space-between;
   align-items: center;
   gap: 24px;
   @media (max-width: 1300px) {
+    display: flex;
     position: absolute;
     right: 48px;
   }

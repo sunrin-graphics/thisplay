@@ -8,6 +8,7 @@ import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import clubList, { ClubList } from "../../data/clubInfo";
 import Image from "next/image";
+import Header from "@/components/Header";
 
 const Layout = styled.div`
   width: 100vw;
@@ -22,6 +23,11 @@ const Main = styled.main`
   min-height: 100vh;
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 20px;
+    margin-top: 98px;
+  }
 `;
 
 const ClubInfoBox = styled.div`
@@ -36,6 +42,10 @@ const ClubInfoBox = styled.div`
   transition: all 0.2s ease;
   &:hover {
     transform: scale(1.05);
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -56,12 +66,20 @@ const ApplicationButton = styled.button`
     filter: brightness(0.9);
     transform: scale(1.05);
   }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Wrapper = styled.div`
   width: 1200px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Row = styled.div`
@@ -69,6 +87,14 @@ const Row = styled.div`
   width: 100%;
   justify-content: space-between;
   align-content: center;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+
+    svg {
+      display: none;
+    }
+  }
 `;
 
 const ClubBox = styled.div`
@@ -124,6 +150,12 @@ const BackIcon = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+  }
 `;
 
 const BackAndClub = styled.div`
@@ -133,6 +165,11 @@ const BackAndClub = styled.div`
   font-weight: 600;
   font-size: 60px;
   color: #332c29;
+
+  @media screen and (max-width: 768px) {
+    font-size: 30px;
+    gap: 5px;
+  }
 `;
 
 const ColumnV2 = styled.div`
@@ -172,12 +209,21 @@ const BoxGroup = styled.div`
   flex-direction: column;
   gap: 10px;
   width: 389px;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 32px;
+  }
 `;
 
 const ClubInfoGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 32px;
+  }
 `;
 
 const Column = styled.div`
@@ -193,6 +239,12 @@ const ClubInfoTitleText = styled.span`
   display: flex;
   align-items: center;
   color: #332c29;
+
+  @media screen and (max-width: 768px) {
+    font-weight: 600;
+    font-size: 25px;
+    color: #000000;
+  }
 `;
 
 const Column2 = styled.div`
@@ -208,6 +260,13 @@ const ClubInfoContentText = styled.span`
   font-size: 16px;
   line-height: 150%;
   color: rgba(51, 32, 24, 0.65);
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    word-break: keep-all;
+    color: rgba(51, 32, 24, 0.65);
+    font-weight: 600;
+  }
 `;
 
 const ClubInfoContentTextV2 = styled.span`
@@ -216,6 +275,10 @@ const ClubInfoContentTextV2 = styled.span`
   font-size: 16px;
   line-height: 200%;
   color: rgba(51, 32, 24, 0.65);
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Edcan = () => {
@@ -237,7 +300,7 @@ const Edcan = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <HeaderV2 />
+        <Header isDetail={true} />
         <Main>
           {data && (
             <Wrapper>
@@ -285,6 +348,9 @@ const Edcan = () => {
               <Row
                 style={{
                   marginTop: "40px",
+                  "@media screen and (max-width: 768px)": {
+                    marginTop: "20px",
+                  },
                 }}
               >
                 <Column>
