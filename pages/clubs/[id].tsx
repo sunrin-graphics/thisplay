@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import Head from "next/head";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import HeaderV2 from "@/components/HeaderV2";
 import Footer from "@/components/Footer";
 import styled from "@emotion/styled";
@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import clubList, { ClubList } from "../../data/clubInfo";
 import Image from "next/image";
 import Header from "@/components/Header";
+import { keyframes } from "@emotion/react";
 
 const Layout = styled.div`
   width: 100vw;
@@ -220,6 +221,7 @@ const ClubInfoGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-bottom: 64px;
 
   @media screen and (max-width: 768px) {
     margin-top: 32px;
@@ -284,7 +286,7 @@ const ClubInfoContentTextV2 = styled.span`
 const Edcan = () => {
   const router = useRouter();
   const { id } = router.query;
-
+  const [modal, setModal] = useState(false);
   const clubData: ClubList = clubList;
   const data = clubData.find((club) => club.id === Number(id));
 
@@ -300,6 +302,24 @@ const Edcan = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
+        {modal && (
+          <ModalBg>
+            <Child>
+              <CSB>
+                <VT>v.friends - EDCAN so cool</VT>
+                <div
+                  className={"material-symbols-outlined"}
+                  onClick={() => setModal(false)}
+                  style={{ cursor: "pointer" }}
+                >
+                  close
+                </div>
+              </CSB>
+              <PIC />
+            </Child>
+          </ModalBg>
+        )}
+
         <HeaderV2 />
         <Main>
           {data && (
@@ -439,9 +459,16 @@ const Edcan = () => {
               </Row>
               <ClubInfoGroup
                 style={{
-                  marginTop: "35px",
+                  marginTop: "128px",
                 }}
-              ></ClubInfoGroup>
+              >
+                <ClubInfoTitleText>작품 목록</ClubInfoTitleText>
+                <ClubPhotos>
+                  {[...Array(30)].map((item, i) => (
+                    <ClubPhoto onClick={() => setModal(true)} key={i} />
+                  ))}
+                </ClubPhotos>
+              </ClubInfoGroup>
             </Wrapper>
           )}
         </Main>
@@ -452,3 +479,81 @@ const Edcan = () => {
 };
 
 export default Edcan;
+
+const VT = styled.div`
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+  /* identical to box height, or 30px */
+
+  display: flex;
+  align-items: center;
+
+  color: #ffffff;
+`;
+
+const CSB = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: #fff;
+`;
+
+const PIC = styled.div`
+  width: 100%;
+  height: 4000px;
+  margin-top: 17px;
+  background: #5a4d48;
+`;
+
+const slideIn = keyframes`
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  `;
+const Child = styled.div`
+  width: 1200px;
+  margin-top: 145px;
+  animation: ${slideIn} 0.2s ease-in-out;
+`;
+
+const ModalBg = styled.div`
+  overflow: scroll;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+`;
+
+const ClubPhotos = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+`;
+
+const ClubPhoto = styled.div`
+  width: 232px;
+  height: 232px;
+  background: #d9d9d9;
+  border-radius: 8px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.03);
+  }
+`;

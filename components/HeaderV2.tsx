@@ -14,6 +14,7 @@ const Layout = styled.header`
   justify-content: center;
   align-items: center;
   position: fixed;
+  z-index: 90;
 `;
 
 const Box = styled.div`
