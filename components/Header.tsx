@@ -6,7 +6,6 @@ import Logo from "../assets/logo.svg";
 import LogoActive from "../assets/logoActive.svg";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { keyframes } from "@emotion/react";
 
 const Header = (props: any) => {
@@ -102,11 +101,6 @@ const Header = (props: any) => {
     setIsOpen(false);
   };
 
-  const [i1, setI1] = useState("시연회 소개");
-  const [i2, setI2] = useState("동아리 목록");
-
-  const [i3, setI3] = useState("질문과 답변");
-
   return (
     <Layout navBar={nav}>
       <Box>
@@ -119,9 +113,9 @@ const Header = (props: any) => {
           style={{ cursor: "pointer" }}
         />
         <List>
-          <LinkStyled onClick={props.sc1}>{i1}</LinkStyled>
-          <LinkStyled onClick={props.sc2}>{i2}</LinkStyled>
-          <LinkStyled onClick={props.sc3}>{i3}</LinkStyled>
+          <LinkStyled onClick={props.sc1}>시연회 소개</LinkStyled>
+          <LinkStyled onClick={props.sc2}>동아리 목록</LinkStyled>
+          <LinkStyled onClick={props.sc3}>질문과 답변</LinkStyled>
           <LinkStyled onClick={props.sc4}>지원하기</LinkStyled>
         </List>
         <ListMobile>
@@ -133,7 +127,7 @@ const Header = (props: any) => {
           onMouseOver={() => openModal()}
           onMouseLeave={() => closeModal()}
         >
-          <ClubSelectButton>동아리별 소개</ClubSelectButton>
+          <ClubSelectButton>동아리 목록</ClubSelectButton>
           {isOpen && (
             <Modal
               onMouseOver={() => openModal()}
