@@ -13,14 +13,19 @@ const Header = (props: any) => {
   const [nav, setNav] = React.useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", () =>
-        setNav(window.scrollY > 100 ? true : false)
-      );
-      if (window.scrollY > 100) {
-        setNav(true);
-      }
+    function handleScroll() {
+      setNav(window.scrollY > 100 ? true : false);
     }
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
   }, []);
 
   const ClubSelectButton = styled.button`
@@ -42,23 +47,6 @@ const Header = (props: any) => {
     }
   `;
 
-  const Icon = styled.div`
-    font-size: 24px;
-
-    color: ${!nav ? "#FFFFFF" : "rgba(51, 37, 31, 0.8)"};
-    transition: color 0.2s ease-in-out;
-  `;
-  const slideIn = keyframes`
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  `;
-
   const LinkStyled = styled.div`
     font-weight: 500;
     font-size: 16px;
@@ -75,49 +63,6 @@ const Header = (props: any) => {
     }
     @media (max-width: 1300px) {
       ${(props) => props.hideOnSmall && "display: none;"}
-    }
-  `;
-
-  const Title = styled.div`
-    color: #9b9b9b;
-    font-size: 16px;
-  `;
-
-  const Modal = styled.div`
-    width: 276px;
-    height: 224px;
-    background: white;
-    box-shadow: 0px 12px 16px rgba(0, 0, 0, 0.03);
-    border: 1px solid #dddddd;
-    border-radius: 12px;
-    top: 60px;
-    right: calc(50vw - 600px);
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    position: absolute;
-    animation: ${slideIn} 0.5s;
-  `;
-  const ModalBody = styled.div`
-    width: 224px;
-    height: 184px;
-    display: flex;
-    justify-content: space-between;
-  `;
-
-  const DP = styled.div`
-    width: 98px;
-    height: 184px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  `;
-
-  const Column23 = styled.div`
-    display: flex;
-    flex-direction: column;
-    @media (max-width: 1300px) {
-      display: none;
     }
   `;
 
@@ -142,51 +87,25 @@ const Header = (props: any) => {
   const Data = styled.div`
     color: #4b4b4b;
     cursor: pointer;
+    transition: font-weight 0.2s ease-in-out;
+    &:hover {
+      font-weight: 700;
+    }
   `;
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const changeModal = () => {
-    setIsOpen(!isOpen);
+  const openModal = () => {
+    setIsOpen(true);
   };
-
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setWidth(window.innerWidth);
-      console.log(window.innerWidth);
-    }
-  }, []);
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   const [i1, setI1] = useState("시연회 소개");
   const [i2, setI2] = useState("동아리 목록");
 
   const [i3, setI3] = useState("질문과 답변");
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (width <= 1300) {
-      setI1("소개");
-      setI2("목록");
-      setI3("QnA");
-    } else {
-      setI1("시연회 소개");
-      setI2("동아리 목록");
-      setI3("질문과 답변");
-    }
-  }, [width]);
 
   return (
     <Layout navBar={nav}>
@@ -203,17 +122,23 @@ const Header = (props: any) => {
           <LinkStyled onClick={props.sc1}>{i1}</LinkStyled>
           <LinkStyled onClick={props.sc2}>{i2}</LinkStyled>
           <LinkStyled onClick={props.sc3}>{i3}</LinkStyled>
-          <LinkStyled hideOnSmall={true} onClick={props.sc4}>
-            지원하기
-          </LinkStyled>
+          <LinkStyled onClick={props.sc4}>지원하기</LinkStyled>
         </List>
-        <Column23>
-          <ClubSelectButton onClick={() => changeModal()}>
-            동아리별 소개
-            <Icon className="material-symbols-outlined">expand_more</Icon>
-          </ClubSelectButton>
-          {isOpen === true && (
-            <Modal>
+        <ListMobile>
+          <LinkStyled onClick={props.sc1}>소개</LinkStyled>
+          <LinkStyled onClick={props.sc2}>목록</LinkStyled>
+          <LinkStyled onClick={props.sc3}>QnA</LinkStyled>
+        </ListMobile>
+        <Column23
+          onMouseOver={() => openModal()}
+          onMouseLeave={() => closeModal()}
+        >
+          <ClubSelectButton>동아리별 소개</ClubSelectButton>
+          {isOpen && (
+            <Modal
+              onMouseOver={() => openModal()}
+              onMouseLeave={() => closeModal()}
+            >
               <ModalBody>
                 <DP>
                   <Title>콘텐츠디자인과</Title>
@@ -243,6 +168,22 @@ const Header = (props: any) => {
 
 export default Header;
 
+const Title = styled.div`
+  color: #9b9b9b;
+  font-size: 16px;
+`;
+
+const slideIn = keyframes`
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  `;
+
 const Layout = styled.header<{ navBar: boolean }>`
   width: 100vw;
   height: 60px;
@@ -260,13 +201,12 @@ const Box = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
   @media (max-width: 1300px) {
-    width: calc(100% - 48px);
+    width: 940px;
     left: 48px;
   }
   @media (max-width: 550px) {
-    width: calc(100% - 40px);
+    width: 350px;
     left: 20px;
   }
 `;
@@ -277,11 +217,54 @@ const List = styled.ul`
   align-items: center;
   gap: 24px;
   @media (max-width: 1300px) {
-    position: absolute;
-    right: 48px;
+    display: none;
   }
-  @media (max-width: 550px) {
-    position: absolute;
-    right: 20px;
+`;
+
+const ListMobile = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  @media (min-width: 1300px) {
+    display: none;
+  }
+`;
+const Modal = styled.div`
+  width: 276px;
+  height: 224px;
+  background: white;
+  box-shadow: 0px 12px 16px rgba(0, 0, 0, 0.03);
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  top: 40px;
+  right: calc(50vw - 600px);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  position: absolute;
+  animation: ${slideIn} 0.2s ease-in-out;
+`;
+const ModalBody = styled.div`
+  width: 224px;
+  height: 184px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const DP = styled.div`
+  width: 98px;
+  height: 184px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const Column23 = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  @media (max-width: 1300px) {
+    display: none;
   }
 `;
