@@ -290,6 +290,11 @@ const Edcan = () => {
   const clubData: ClubList = clubList;
   const data = clubData.find((club) => club.id === Number(id));
 
+  useEffect(() => {
+    if (modal) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "unset";
+  }, [modal]);
+
   return (
     <>
       <Head>
@@ -522,6 +527,7 @@ const CSB = styled.div`
 const PIC = styled.img`
   width: 100%;
   margin-top: 17px;
+  margin-bottom: 35px;
   background: #5a4d48;
 `;
 
@@ -537,7 +543,7 @@ const slideIn = keyframes`
   `;
 const Child = styled.div`
   width: 1200px;
-  margin-top: 145px;
+  margin-top: 40px;
   animation: ${slideIn} 0.2s ease-in-out;
 
   @media (max-width: 768px) {
@@ -607,6 +613,8 @@ const Youtube = styled.iframe`
   height: 713px;
   border: none;
   border-radius: 8px;
+  margin-top: 17px;
+  margin-bottom: 35px;
 
   @media screen and (max-width: 768px) {
     height: 250px;
