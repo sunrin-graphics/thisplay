@@ -196,6 +196,28 @@ const ApplyButton = styled.button`
   }
 `;
 
+const ApplyButtonDisabled = styled.div`
+  background: rgba(255, 255, 255, 0.47);
+  margin-top: 48px;
+  width: 300px;
+  padding: 16px 36px;
+  gap: 16px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  mix-blend-mode: screen;
+  transition: all 0.2s ease;
+
+  @media (max-width: 1300px) {
+    display: none;
+  }
+`;
+
 const Section2 = styled.div`
   margin-top: 96px;
   width: 100%;
@@ -443,6 +465,21 @@ const Ltb = styled.div`
     color: #000;
     mix-blend-mode: screen;
   }
+`;
+
+const Ltb2 = styled.div`
+  width: 250px;
+  height: 60px;
+  border: 1px solid white;
+  border-radius: 100px;
+  display: flex;
+  background-color: white;
+  color: #000;
+  mix-blend-mode: screen;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 0.8;
 `;
 
 const LttDesc = styled.div`
@@ -721,6 +758,12 @@ export default function Home() {
   const ref3 = useRef<HTMLDivElement>(null);
   const ref4 = useRef<HTMLDivElement>();
 
+  const isApplicationDate = () => {
+    const today = new Date();
+    const start = new Date("2023-03-11");
+    const end = new Date("2021-03-12");
+    return start <= today && today <= end;
+  };
   const refDown = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -782,7 +825,7 @@ export default function Home() {
 
   useEffect(() => {
     // const targetTime = new Date('2023-03-11T00:00:00.000Z').getTime();
-    const targetTime = new Date("2023-03-06T07:00:00.000Z").getTime();
+    const targetTime = new Date("2023-03-11T07:00:00.000Z").getTime();
 
     const updateLeftTime = () => {
       const now = new Date().getTime();
@@ -932,12 +975,18 @@ export default function Home() {
                 </InstagramButton>
               </Hid>
             </SpaceBetweenV2>
-            <ApplyButton>
-              동아리 신청 마감까지 {leftHour} : {leftMinute} : {leftSecond}{" "}
-              <Icon2 className={"material-symbols-outlined"}>
-                arrow_forward
-              </Icon2>{" "}
-            </ApplyButton>
+            {isApplicationDate() ? (
+              <ApplyButton>
+                동아리 신청 마감까지 {leftHour} : {leftMinute} : {leftSecond}{" "}
+                <Icon2 className={"material-symbols-outlined"}>
+                  arrow_forward
+                </Icon2>{" "}
+              </ApplyButton>
+            ) : (
+              <ApplyButtonDisabled>
+                동아리 신청 기간이 아닙니다.
+              </ApplyButtonDisabled>
+            )}
           </Views>
           <FixedCenter>
             <div onClick={gotoScrollDown}>
@@ -1091,22 +1140,28 @@ export default function Home() {
                   * 3월 11일부터 12일까지 지원폼이 공개됩니다.
                 </LttCaution>
               </Ltt>
-              <Ltb>
-                <LtbTxt>면접 지원폼 바로가기</LtbTxt>
-                <Icon2 className={"material-symbols-outlined"}>
-                  arrow_forward
-                </Icon2>
-              </Ltb>
+              {isApplicationDate() ? (
+                <Ltb>
+                  <LtbTxt>면접 지원폼 바로가기</LtbTxt>
+                  <Icon2 className={"material-symbols-outlined"}>
+                    arrow_forward
+                  </Icon2>
+                </Ltb>
+              ) : (
+                <Ltb2>
+                  <LtbTxt>지원 가능 시간이 아닙니다.</LtbTxt>
+                </Ltb2>
+              )}
             </LeftContainer>
             <RightContainer>
               {/* <M>지원폼 공개까지 <br/></M> */}
               <M>
-                시연회 홈페이지 마감까지 <br />
+                지원폼 공개까지 <br />
               </M>
               <B>
                 {leftHour} : {leftMinute} : {leftSecond}
               </B>{" "}
-              <Sb>남았어요?</Sb>
+              <Sb>남았어요</Sb>
             </RightContainer>
           </Container>
         </LastSection>
