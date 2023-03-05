@@ -31,7 +31,7 @@ const Main = styled.main`
   }
 `;
 
-const ClubInfoBox = styled.div`
+const ClubInfoBox = styled.a`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -92,7 +92,7 @@ const Row = styled.div`
   @media screen and (max-width: 768px) {
     flex-direction: column-reverse;
 
-    svg {
+    #Vector {
       display: none;
     }
   }
@@ -286,7 +286,7 @@ const ClubInfoContentTextV2 = styled.span`
 const Edcan = () => {
   const router = useRouter();
   const { id } = router.query;
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState();
   const clubData: ClubList = clubList;
   const data = clubData.find((club) => club.id === Number(id));
 
@@ -306,16 +306,20 @@ const Edcan = () => {
           <ModalBg>
             <Child>
               <CSB>
-                <VT>v.friends - EDCAN so cool</VT>
+                <VT>{`v.friends - ${modal.name}`}</VT>
                 <div
                   className={"material-symbols-outlined"}
-                  onClick={() => setModal(false)}
+                  onClick={() => setModal()}
                   style={{ cursor: "pointer" }}
                 >
                   close
                 </div>
               </CSB>
-              <PIC />
+              {!modal.isVideo ? (
+                <PIC src={modal.path} />
+              ) : (
+                <Youtube src={modal.url} />
+              )}
             </Child>
           </ModalBg>
         )}
@@ -335,6 +339,7 @@ const Edcan = () => {
                   {data.name}
                 </BackAndClub>
                 <svg
+                  id="Vector"
                   width="106"
                   height="45"
                   viewBox="0 0 106 45"
@@ -414,37 +419,41 @@ const Edcan = () => {
                     <ClubInfoTitle>모집 인원</ClubInfoTitle>
                     <ClubInfoContent>총 {data.member}명</ClubInfoContent>
                   </ClubInfoBox>
-                  <ClubInfoBox>
+                  <ClubInfoBox href={data.site} target="_blank">
                     <ClubInfoTitle>사이트</ClubInfoTitle>
                     <ClubInfoContent>{data.site}</ClubInfoContent>
                   </ClubInfoBox>
                   <ClubInfoBox>
                     <ClubInfoTitle>외부 SNS</ClubInfoTitle>
                     <ClubInfoContentV3>
-                      <svg
-                        width="24"
-                        height="25"
-                        viewBox="0 0 24 25"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 2C6.4775 2 2 6.50057 2 12.0515C2 17.0907 5.69333 21.252 10.505 21.9791V14.7152H8.03083V12.0733H10.505V10.3151C10.505 7.40436 11.9158 6.12698 14.3225 6.12698C15.475 6.12698 16.085 6.21326 16.3733 6.25179V8.55778H14.7317C13.71 8.55778 13.3533 9.53193 13.3533 10.6292V12.0733H16.3475L15.9417 14.7152H13.3533V22C18.2342 21.3349 22 17.1401 22 12.0515C22 6.50057 17.5225 2 12 2Z"
-                          fill="#5A4D48"
-                        />
-                      </svg>
-                      <svg
-                        width="24"
-                        height="25"
-                        viewBox="0 0 24 25"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M7.59844 3C4.51124 3 2 5.51356 2 8.60156V16.6016C2 19.6888 4.51356 22.2 7.60156 22.2H15.6016C18.6888 22.2 21.2 19.6864 21.2 16.5984V8.59844C21.2 5.51124 18.6864 3 15.5984 3H7.59844ZM17.2 6.2C17.6416 6.2 18 6.5584 18 7C18 7.4416 17.6416 7.8 17.2 7.8C16.7584 7.8 16.4 7.4416 16.4 7C16.4 6.5584 16.7584 6.2 17.2 6.2ZM11.6 7.8C14.2472 7.8 16.4 9.9528 16.4 12.6C16.4 15.2472 14.2472 17.4 11.6 17.4C8.9528 17.4 6.8 15.2472 6.8 12.6C6.8 9.9528 8.9528 7.8 11.6 7.8ZM11.6 9.4C10.7513 9.4 9.93737 9.73714 9.33726 10.3373C8.73714 10.9374 8.4 11.7513 8.4 12.6C8.4 13.4487 8.73714 14.2626 9.33726 14.8627C9.93737 15.4629 10.7513 15.8 11.6 15.8C12.4487 15.8 13.2626 15.4629 13.8627 14.8627C14.4629 14.2626 14.8 13.4487 14.8 12.6C14.8 11.7513 14.4629 10.9374 13.8627 10.3373C13.2626 9.73714 12.4487 9.4 11.6 9.4Z"
-                          fill="#5A4D48"
-                        />
-                      </svg>
+                      <a href={data.sns.facebook} target="_blank">
+                        <svg
+                          width="24"
+                          height="25"
+                          viewBox="0 0 24 25"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 2C6.4775 2 2 6.50057 2 12.0515C2 17.0907 5.69333 21.252 10.505 21.9791V14.7152H8.03083V12.0733H10.505V10.3151C10.505 7.40436 11.9158 6.12698 14.3225 6.12698C15.475 6.12698 16.085 6.21326 16.3733 6.25179V8.55778H14.7317C13.71 8.55778 13.3533 9.53193 13.3533 10.6292V12.0733H16.3475L15.9417 14.7152H13.3533V22C18.2342 21.3349 22 17.1401 22 12.0515C22 6.50057 17.5225 2 12 2Z"
+                            fill="#5A4D48"
+                          />
+                        </svg>
+                      </a>
+                      <a href={data.sns.instagram} target="_blank">
+                        <svg
+                          width="24"
+                          height="25"
+                          viewBox="0 0 24 25"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7.59844 3C4.51124 3 2 5.51356 2 8.60156V16.6016C2 19.6888 4.51356 22.2 7.60156 22.2H15.6016C18.6888 22.2 21.2 19.6864 21.2 16.5984V8.59844C21.2 5.51124 18.6864 3 15.5984 3H7.59844ZM17.2 6.2C17.6416 6.2 18 6.5584 18 7C18 7.4416 17.6416 7.8 17.2 7.8C16.7584 7.8 16.4 7.4416 16.4 7C16.4 6.5584 16.7584 6.2 17.2 6.2ZM11.6 7.8C14.2472 7.8 16.4 9.9528 16.4 12.6C16.4 15.2472 14.2472 17.4 11.6 17.4C8.9528 17.4 6.8 15.2472 6.8 12.6C6.8 9.9528 8.9528 7.8 11.6 7.8ZM11.6 9.4C10.7513 9.4 9.93737 9.73714 9.33726 10.3373C8.73714 10.9374 8.4 11.7513 8.4 12.6C8.4 13.4487 8.73714 14.2626 9.33726 14.8627C9.93737 15.4629 10.7513 15.8 11.6 15.8C12.4487 15.8 13.2626 15.4629 13.8627 14.8627C14.4629 14.2626 14.8 13.4487 14.8 12.6C14.8 11.7513 14.4629 10.9374 13.8627 10.3373C13.2626 9.73714 12.4487 9.4 11.6 9.4Z"
+                            fill="#5A4D48"
+                          />
+                        </svg>
+                      </a>
                     </ClubInfoContentV3>
                   </ClubInfoBox>
                   <ApplicationButton
@@ -464,8 +473,18 @@ const Edcan = () => {
               >
                 <ClubInfoTitleText>작품 목록</ClubInfoTitleText>
                 <ClubPhotos>
-                  {[...Array(15)].map((item, i) => (
+                  {/* {[...Array(15)].map((item, i) => (
                     <ClubPhoto onClick={() => setModal(true)} key={i} />
+                  ))} */}
+                  {data.gallery.map((item, i) => (
+                    <ClubPhoto
+                      onClick={() => {
+                        setModal(item);
+                      }}
+                      key={i}
+                    >
+                      <ClubPhotoImage src={item.path} />
+                    </ClubPhoto>
                   ))}
                 </ClubPhotos>
               </ClubInfoGroup>
@@ -500,9 +519,8 @@ const CSB = styled.div`
   color: #fff;
 `;
 
-const PIC = styled.div`
+const PIC = styled.img`
   width: 100%;
-  height: 4000px;
   margin-top: 17px;
   background: #5a4d48;
 `;
@@ -561,7 +579,9 @@ const ClubPhoto = styled.div`
   order: 0;
   flex-grow: 0;
   cursor: pointer;
+  overflow: hidden;
   transition: all 0.2s ease-in-out;
+  position: relative;
   &:hover {
     opacity: 0.8;
     transform: scale(1.03);
@@ -570,5 +590,25 @@ const ClubPhoto = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     height: 110px;
+  }
+`;
+
+const ClubPhotoImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const Youtube = styled.iframe`
+  width: 100%;
+  height: 713px;
+  border: none;
+  border-radius: 8px;
+
+  @media screen and (max-width: 768px) {
+    height: 250px;
   }
 `;
