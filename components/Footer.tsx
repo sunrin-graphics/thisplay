@@ -54,7 +54,12 @@ const Contents3 = styled.div`
 `;
 const Contents2 = styled.div`
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  gap: 4px;
+  @media (max-width: 550px) {
+    flex-direction: row;
+    gap: 24px;
+  }
 `;
 
 const Content = styled.span`

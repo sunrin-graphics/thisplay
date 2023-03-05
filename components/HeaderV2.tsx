@@ -74,6 +74,7 @@ const HeaderV2 = () => {
           alt="Logo"
           width={77}
           height={20}
+          style={{ cursor: "pointer" }}
         />
         <Column
           onMouseOver={() => openModal()}
