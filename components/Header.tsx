@@ -3,12 +3,11 @@ import Image from "next/image";
 import Logo from "../assets/logo.svg";
 import LogoActive from "../assets/logoActive.svg";
 import React, { useEffect, useState } from "react";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 import Link from "next/link";
+import { keyframes } from "@emotion/react";
 
-const Header = (
-  props:any
-) => {
+const Header = (props: any) => {
   const [nav, setNav] = React.useState(false);
 
   useEffect(() => {
@@ -30,16 +29,29 @@ const Header = (
     align-items: center;
     text-align: center;
     gap: 2px;
-
+    cursor: pointer;
     color: ${!nav ? "#FFFFFF" : "rgba(51, 37, 31, 0.8)"};
-    transition: all 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+    &:hover {
+      opacity: 0.5;
+    }
   `;
 
   const Icon = styled.div`
     font-size: 24px;
 
     color: ${!nav ? "#FFFFFF" : "rgba(51, 37, 31, 0.8)"};
-    transition: all 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+  `;
+  const slideIn = keyframes`
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   `;
 
   const LinkStyled = styled.div`
@@ -59,40 +71,46 @@ const Header = (
   `;
 
   const Title = styled.div`
-    color: #9B9B9B;
+    color: #9b9b9b;
     font-size: 16px;
-  `
+  `;
 
   const Modal = styled.div`
     width: 276px;
     height: 224px;
     background: white;
-    box-shadow: 0px 12px 16px rgba(0, 0, 0, 0.1);
-    border: 1px solid #DDDDDD;
-    position: absolute;
+    box-shadow: 0px 12px 16px rgba(0, 0, 0, 0.03);
+    border: 1px solid #dddddd;
     border-radius: 12px;
-    top: 70px;
-    right: 70px;
+    top: 60px;
+    right: calc(50vw - 600px);
     display: flex;
     align-items: center;
     padding: 20px;
-  `
+    position: absolute;
+    animation: ${slideIn} 0.5s;
+  `;
   const ModalBody = styled.div`
     width: 224px;
     height: 184px;
     display: flex;
     justify-content: space-between;
-  `
-  
+  `;
+
   const DP = styled.div`
     width: 98px;
     height: 184px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  `
+  `;
 
-  const router = useRouter(); 
+  const Column23 = styled.div`
+    display: flex;
+    flex-direction: column;
+  `;
+
+  const router = useRouter();
 
   const CD_data = [
     { id: 1, title: "v.friends", move: 1 },
@@ -111,20 +129,15 @@ const Header = (
   ];
 
   const Data = styled.div`
-    color: #4B4B4B;
+    color: #4b4b4b;
     cursor: pointer;
-  `
+  `;
 
   const [isOpen, setIsOpen] = useState(false);
 
   const changeModal = () => {
-    if (isOpen) {
-      setIsOpen(false)
-    }
-    else if (!isOpen) {
-      setIsOpen(true)
-    }
-  }
+    setIsOpen(!isOpen);
+  };
 
   return (
     <Layout navBar={nav}>
@@ -142,44 +155,35 @@ const Header = (
           <LinkStyled onClick={props.sc3}>질문과 답변</LinkStyled>
           <LinkStyled onClick={props.sc4}>지원하기</LinkStyled>
         </List>
-        <ClubSelectButton
-          onClick={() => changeModal()}
-        >
-          동아리별 소개
-          <Icon className="material-symbols-outlined">expand_more</Icon>
-        </ClubSelectButton>
-        { isOpen === true &&
-          <Modal>
-            <ModalBody>
-              <DP>
-                <Title>
-                  콘텐츠디자인과
-                </Title>
-                {
-                  CD_data.map((item) => (
-                    <div onClick={() => router.push(`/clubs/${item.move}`)} key={item.id}>
-                      <Data>
-                        {item.title}
-                      </Data>
+        <Column23>
+          <ClubSelectButton onClick={() => changeModal()}>
+            동아리별 소개
+            <Icon className="material-symbols-outlined">expand_more</Icon>
+          </ClubSelectButton>
+          {isOpen === true && (
+            <Modal>
+              <ModalBody>
+                <DP>
+                  <Title>콘텐츠디자인과</Title>
+                  {CD_data.map((item) => (
+                    <div
+                      onClick={() => router.push(`/clubs/${item.move}`)}
+                      key={item.id}
+                    >
+                      <Data>{item.title}</Data>
                     </div>
-                  ))
-                }
-              </DP>
-              <DP>
-                <Title>
-                  소프트웨어과
-                </Title>
-                {
-                  SW_data.map((item) => (
-                    <Data key={item.id}>
-                      {item.title}
-                    </Data>
-                  ))
-                }
-              </DP>
-            </ModalBody>
-          </Modal>
-      }
+                  ))}
+                </DP>
+                <DP>
+                  <Title>소프트웨어과</Title>
+                  {SW_data.map((item) => (
+                    <Data key={item.id}>{item.title}</Data>
+                  ))}
+                </DP>
+              </ModalBody>
+            </Modal>
+          )}
+        </Column23>
       </Box>
     </Layout>
   );
