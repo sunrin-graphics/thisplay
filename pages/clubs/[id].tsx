@@ -224,7 +224,7 @@ const ClubInfoGroup = styled.div`
   margin-bottom: 64px;
 
   @media screen and (max-width: 768px) {
-    margin-top: 32px;
+    margin-top: 32px !important;
   }
 `;
 
@@ -464,7 +464,7 @@ const Edcan = () => {
               >
                 <ClubInfoTitleText>작품 목록</ClubInfoTitleText>
                 <ClubPhotos>
-                  {[...Array(30)].map((item, i) => (
+                  {[...Array(15)].map((item, i) => (
                     <ClubPhoto onClick={() => setModal(true)} key={i} />
                   ))}
                 </ClubPhotos>
@@ -521,6 +521,12 @@ const Child = styled.div`
   width: 1200px;
   margin-top: 145px;
   animation: ${slideIn} 0.2s ease-in-out;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0 20px;
+    margin-top: 132px;
+  }
 `;
 
 const ModalBg = styled.div`
@@ -540,6 +546,10 @@ const ClubPhotos = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const ClubPhoto = styled.div`
@@ -555,5 +565,10 @@ const ClubPhoto = styled.div`
   &:hover {
     opacity: 0.8;
     transform: scale(1.03);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 110px;
   }
 `;

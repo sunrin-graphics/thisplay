@@ -18,6 +18,7 @@ type ClubInfo = {
   mainColor: string;
   subColor: String;
   textColor: String;
+  gallery: string[];
 };
 
 export type ClubList = ClubInfo[];
