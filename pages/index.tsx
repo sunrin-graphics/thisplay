@@ -93,7 +93,7 @@ const ApplyButton = styled.button`
   gap: 16px;
   border: 2px solid #ffffff;
   border-radius: 100px;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 18px;
   line-height: 22px;
   display: flex;
