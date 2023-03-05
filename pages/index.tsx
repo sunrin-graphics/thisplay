@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 import Logo from "@/assets/logo.svg";
 import Image from "next/image";
 import logo from "../assets/character.png"
-import arrow from "../assets/arrow_back.png"
+import bottom from "../assets/expand_more.svg"
 import GrayBox from "@/components/GrayBox";
 import clubList, { ClubList } from "../data/clubInfo";
 import questionList from "@/data/questionData";
@@ -115,6 +115,30 @@ const Section2 = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+const FixedCenter = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+`
+
+const BottomFixed = styled.div`
+  display: flex;
+  position: relative;
+  bottom: 80px;
+  width: 162px;
+  height: 52px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+`
+
+const Txt = styled.div`
+  color: white;
+`
 
 const Section2Body = styled.div`
   width: 1200px;
@@ -432,10 +456,19 @@ export default function Home() {
   const ref3 = useRef<HTMLDivElement>(null);
   const ref4 = useRef<HTMLDivElement>();
 
+  const refDown = useRef<HTMLDivElement>(null);
+
   function gotoScroll0(className:string) {
     if(ref0 !== null) {
       const {offsetTop} = ref0.current as any;
       window.scrollTo({behavior: 'smooth', top: offsetTop})
+    }
+  }
+
+  function gotoScrollDown(className:string) {
+    if(refDown !== null) {
+      const {offsetTop} = refDown.current as any;
+      window.scrollTo({behavior: 'smooth', top: offsetTop - 120})
     }
   }
 
@@ -511,7 +544,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout ref={ref0}>
+      <Layout>
         <Header
           sc0={gotoScroll0}
           sc1={gotoScroll}
@@ -519,7 +552,7 @@ export default function Home() {
           sc3={gotoScroll3}
           sc4={gotoScroll4}
         />
-        <Section1 ref={ref1}>
+        <Section1 ref={ref0}>
           <Video muted autoPlay loop>
             <source src="video/MainVideo.mp4" type="video/mp4" />
             <strong>Your browser does not support the video tag.</strong>
@@ -638,8 +671,16 @@ export default function Home() {
             </SpaceBetweenV2>
             <ApplyButton>동아리 신청 마감까지 {leftHour} : {leftMinute} : {leftSecond} <Icon2 className={'material-symbols-outlined'}>arrow_forward</Icon2> </ApplyButton>
           </Views>
+          <FixedCenter>
+            <div onClick={gotoScrollDown}>
+              <BottomFixed>
+                <Txt>스크롤해서 더 알아보세요</Txt>
+                <Image src={bottom} width={24} height={24} alt="logo"/>
+              </BottomFixed>
+            </div>
+          </FixedCenter>
         </Section1>
-        <Section2 >
+        <Section2 ref={refDown}>
           <Section2Body>
             <Section2Border />
             <Section2Text>
@@ -650,7 +691,7 @@ export default function Home() {
             <Section2Border />
           </Section2Body>
         </Section2>
-        <Section3 >
+        <Section3 ref={ref1}>
           <Section3Body>
             <Section3Introduce>
               <IntroduceTitle>
@@ -732,7 +773,7 @@ export default function Home() {
           </Child2>
         </Parent2>
 
-        <LastSection>
+        <LastSection ref={ref4}>
           <Container>
               <LeftContainer>
                 <Ltt>
