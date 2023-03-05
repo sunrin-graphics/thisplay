@@ -706,7 +706,7 @@ export default function Home() {
                 시연회를 통해 신입생들은 앞서 입학한 선배들의 작품을 감상하고,{" "}
                 <br />
                 앞으로의 동아리 선택부터 콘텐츠디자인과 생활까지에 대해 힌트를
-                얻을 수 있어요!
+                얻을 수 있어요.
               </IntroduceDesc>
             </Section3Introduce>
             <Section3Illu>
@@ -752,7 +752,7 @@ export default function Home() {
                 질문과 답변
               </ZoneTitle>
               <ZoneDesc>
-                많이하는 질문에 대한 답변들을 모아봤어요!
+                자주 하는 질문에 대한 답변을 모아봤어요!
               </ZoneDesc>
             </Zone>
             <Part>
