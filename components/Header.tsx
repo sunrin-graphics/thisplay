@@ -143,18 +143,23 @@ const Header = (props: any) => {
                 <DP>
                   <Title>콘텐츠디자인과</Title>
                   {CD_data.map((item) => (
-                    <div
-                      onClick={() => router.push(`/clubs/${item.move}`)}
+                    <Data
                       key={item.id}
+                      onClick={() => router.push(`/clubs/${item.move}`)}
                     >
-                      <Data>{item.title}</Data>
-                    </div>
+                      {item.title}
+                    </Data>
                   ))}
                 </DP>
                 <DP>
                   <Title>소프트웨어과</Title>
                   {SW_data.map((item) => (
-                    <Data key={item.id}>{item.title}</Data>
+                    <Data
+                      onClick={() => router.push(`/clubs/${item.move}`)}
+                      key={item.id}
+                    >
+                      {item.title}
+                    </Data>
                   ))}
                 </DP>
               </ModalBody>
