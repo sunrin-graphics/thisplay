@@ -1137,7 +1137,7 @@ export default function Home() {
                   선택해주세요!
                 </LttDesc>
                 <LttCaution>
-                  * 3월 11일부터 12일까지 지원폼이 공개됩니다.
+                  * 3월 10일부터 12일까지 지원폼이 공개됩니다.
                 </LttCaution>
               </Ltt>
               {isApplicationDate() ? (
