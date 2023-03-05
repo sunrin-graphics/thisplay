@@ -21,6 +21,7 @@ type ClubInfo = {
   gallery: {
     path: string;
     name: string;
+    isVideo: boolean;
   }[];
 };
 
@@ -77,6 +78,7 @@ const clubInfo: ClubInfo[] = [
       {
         path: "/images/v.friends/2023새해 포스터.png",
         name: "2023년도 새해 포스터",
+        isVideo: false,
       },
     ],
   },
