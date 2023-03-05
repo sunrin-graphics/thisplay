@@ -16,9 +16,12 @@ type ClubInfo = {
   awards: string[];
   info: string;
   mainColor: string;
-  subColor: String;
-  textColor: String;
-  gallery: string[];
+  subColor: string;
+  textColor: string;
+  gallery: {
+    path: string;
+    name: string;
+  }[];
 };
 
 export type ClubList = ClubInfo[];
@@ -70,6 +73,12 @@ const clubInfo: ClubInfo[] = [
     subColor: "#FBCC26",
     mainColor: "#D99D3D",
     textColor: "#ffffff",
+    gallery: [
+      {
+        path: "/images/v.friends/2023새해 포스터.png",
+        name: "2023년도 새해 포스터",
+      },
+    ],
   },
   {
     id: 2,
