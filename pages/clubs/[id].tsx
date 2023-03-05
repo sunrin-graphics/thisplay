@@ -311,7 +311,7 @@ const Edcan = () => {
           <ModalBg>
             <Child>
               <CSB>
-                <VT>{`v.friends - ${modal.name}`}</VT>
+                <VT>{`thisPlay! | ${modal.name}`}</VT>
                 <div
                   className={"material-symbols-outlined"}
                   onClick={() => setModal()}
@@ -473,7 +473,7 @@ const Edcan = () => {
               </Row>
               <ClubInfoGroup
                 style={{
-                  marginTop: "128px",
+                  marginTop: "48px",
                 }}
               >
                 <ClubInfoTitleText>작품 목록</ClubInfoTitleText>

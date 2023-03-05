@@ -76,17 +76,87 @@ const clubInfo: ClubInfo[] = [
     textColor: "#ffffff",
     gallery: [
       {
-        path: "/images/v.friends/2023새해 포스터.png",
-        name: "2023년도 새해 포스터",
+        url: "https://www.youtube.com/embed/XrjW9N7jkfE",
+        path: "https://i.ytimg.com/vi/XrjW9N7jkfE/maxresdefault.jpg",
+        name: "2021 김민 포트폴리오",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/zNERoG2-trs",
+        path: "https://i.ytimg.com/vi/zNERoG2-trs/maxresdefault.jpg",
+        name: "vestival 홍보 영상",
+        isVideo: true,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082007084217942016/1082011137014509589/beae07b728393ba4.png",
+        name: "소프트웨어 나눔 축제 교재 디자인",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082007084217942016/1082011233986822345/e1476fe6047aa8c0.png",
+        name: "하늘 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082007084217942016/1082021714319392838/cdad5a78a3fd3ac4.jpg",
+        name: "신은 죽었다",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082007084217942016/1082011190064054302/2023_Happy_New_Year.png",
+        name: "2023 새해 기념 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082007084217942016/1082011222628646912/83e27f834880aa8a.png",
+        name: "여름의 마법 디자인",
         isVideo: false,
       },
       {
         url: "https://www.youtube.com/embed/Rnm0Sj3AOa8",
-        path: "/images/v.friends/2023새해 포스터.png",
-        name: "2023년도 새해 포스터",
+        path: "https://i.ytimg.com/vi/Rnm0Sj3AOa8/maxresdefault.jpg",
+        name: "헌혈 공모전",
         isVideo: true,
       },
+      {
+        url: "https://www.youtube.com/embed/ozBvKUJCbv0",
+        path: "https://i.ytimg.com/vi/ozBvKUJCbv0/maxresdefault.jpg",
+        name: "라람티비 인트로",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/SNc3WPX-Aao",
+        path: "https://i.ytimg.com/vi/SNc3WPX-Aao/maxresdefault.jpg",
+        name: "축제 3D",
+        isVideo: true,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082007084217942016/1082011396079878325/5e71a39672602af5.png",
+        name: "총 모델링",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082007084217942016/1082011361262977155/3D_1.png",
+        name: "기계 모델링",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082007084217942016/1082011476149141714/Start_Planner_UIUX.png",
+        name: "UI/UX Start Planner 디자인",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082007084217942016/1082011487763181661/9760f08450a058e2.png",
+        name: "UI/UX 음악 앱 디자인",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082007084217942016/1082011492561465374/2a3e78c48cfa4991.png",
+        name: "금연광고 포스터",
+        isVideo: false,
+      },
     ],
+    
   },
   {
     id: 2,
@@ -127,6 +197,26 @@ const clubInfo: ClubInfo[] = [
     subColor: "#00A9CE",
     mainColor: "#425563",
     textColor: "#fff",
+    gallery: [
+      {
+        url: "https://www.youtube.com/embed/tH006EAJ9dg",
+        path: "https://i.ytimg.com/vi/tH006EAJ9dg/maxresdefault.jpg",
+        name: "위그비",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/LVJSe-epa80",
+        path: "https://i.ytimg.com/vi/LVJSe-epa80/maxresdefault.jpg",
+        name: "Material You",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/2V9qiB8C8co",
+        path: "https://i.ytimg.com/vi/2V9qiB8C8co/maxresdefault.jpg",
+        name: "Google Photo",
+        isVideo: true,
+      },
+    ],
   },
 
   {
@@ -179,6 +269,26 @@ const clubInfo: ClubInfo[] = [
     mainColor: "#38BF54",
     subColor: "#57B7D5",
     textColor: "#fff",
+    gallery: [
+      {
+        url: "https://www.youtube.com/embed/tH006EAJ9dg",
+        path: "https://i.ytimg.com/vi/tH006EAJ9dg/maxresdefault.jpg",
+        name: "위그비",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/LVJSe-epa80",
+        path: "https://i.ytimg.com/vi/LVJSe-epa80/maxresdefault.jpg",
+        name: "Material You",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/2V9qiB8C8co",
+        path: "https://i.ytimg.com/vi/2V9qiB8C8co/maxresdefault.jpg",
+        name: "Google Photo",
+        isVideo: true,
+      },
+    ],
   },
   {
     id: 4,
@@ -216,6 +326,83 @@ const clubInfo: ClubInfo[] = [
     subColor: "#d9acf2",
     mainColor: "#f0b7cd",
     textColor: "#ffffff",
+    gallery: [
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012434258219008/982d5df1d9b81a08.png",
+        name: "강승주 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012434837020702/74734447d9d673fd.jpg",
+        name: "구슬이 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012436435062905/ca3f34a1e5423f12.jpg",
+        name: "김해윤 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012435805896744/5150a619a1408557.jpeg",
+        name: "김수빈 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012437030641694/d18a05e71bf2139c.jpg",
+        name: "류준상 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012437647196160/53890dd93dd7557e.jpg",
+        name: "박세현 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012438255390802/a2b0c008a48a968c.jpeg",
+        name: "유신비 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012439354286200/8cf58081f22647e3.jpg",
+        name: "유호빈 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012440583209042/78e6baa9183d329f.jpeg",
+        name: "이나영 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012441011048529/177192e83c2757d2.png",
+        name: "이서현 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012525459165224/9f31e50550e60508.jpg",
+        name: "이초원 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012526067322961/82d4b6bfc00ca61c.jpeg",
+        name: "이태은 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012526545489950/a68e33b79a54aef8.png",
+        name: "조성환 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012527183003679/b7ab943ff01ae698.jpeg",
+        name: "천의선 포스터",
+        isVideo: false,
+      },
+      {
+        path: "https://cdn.discordapp.com/attachments/1082011620206710824/1082012528114143312/8519fb19fb10c4f2.png",
+        name: "황서희 포스터",
+        isVideo: false,
+      },
+    ],
   },
   {
     id: 5,
@@ -235,6 +422,26 @@ const clubInfo: ClubInfo[] = [
     subColor: "#224fac",
     mainColor: "#1e2b58",
     textColor: "#ffffff",
+    gallery: [
+      {
+        url: "https://www.youtube.com/embed/tH006EAJ9dg",
+        path: "https://i.ytimg.com/vi/tH006EAJ9dg/maxresdefault.jpg",
+        name: "위그비",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/LVJSe-epa80",
+        path: "https://i.ytimg.com/vi/LVJSe-epa80/maxresdefault.jpg",
+        name: "Material You",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/2V9qiB8C8co",
+        path: "https://i.ytimg.com/vi/2V9qiB8C8co/maxresdefault.jpg",
+        name: "Google Photo",
+        isVideo: true,
+      },
+    ],
   },
 
   {
@@ -276,6 +483,26 @@ const clubInfo: ClubInfo[] = [
     mainColor: "#0c1532",
     subColor: "#f2e341",
     textColor: "#ffffff",
+    gallery: [
+      {
+        url: "https://www.youtube.com/embed/tH006EAJ9dg",
+        path: "https://i.ytimg.com/vi/tH006EAJ9dg/maxresdefault.jpg",
+        name: "위그비",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/LVJSe-epa80",
+        path: "https://i.ytimg.com/vi/LVJSe-epa80/maxresdefault.jpg",
+        name: "Material You",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/2V9qiB8C8co",
+        path: "https://i.ytimg.com/vi/2V9qiB8C8co/maxresdefault.jpg",
+        name: "Google Photo",
+        isVideo: true,
+      },
+    ],
   },
   {
     id: 7,
@@ -323,6 +550,26 @@ const clubInfo: ClubInfo[] = [
     subColor: "#717faa",
     mainColor: "#2a2b59",
     textColor: "#ffffff",
+    gallery: [
+      {
+        url: "https://www.youtube.com/embed/tH006EAJ9dg",
+        path: "https://i.ytimg.com/vi/tH006EAJ9dg/maxresdefault.jpg",
+        name: "위그비",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/LVJSe-epa80",
+        path: "https://i.ytimg.com/vi/LVJSe-epa80/maxresdefault.jpg",
+        name: "Material You",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/2V9qiB8C8co",
+        path: "https://i.ytimg.com/vi/2V9qiB8C8co/maxresdefault.jpg",
+        name: "Google Photo",
+        isVideo: true,
+      },
+    ],
   },
   {
     id: 8,
@@ -363,6 +610,26 @@ const clubInfo: ClubInfo[] = [
     subColor: "#F32F31",
     mainColor: "#B52426",
     textColor: "#FFFFFF",
+    gallery: [
+      {
+        url: "https://www.youtube.com/embed/tH006EAJ9dg",
+        path: "https://i.ytimg.com/vi/tH006EAJ9dg/maxresdefault.jpg",
+        name: "위그비",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/LVJSe-epa80",
+        path: "https://i.ytimg.com/vi/LVJSe-epa80/maxresdefault.jpg",
+        name: "Material You",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/2V9qiB8C8co",
+        path: "https://i.ytimg.com/vi/2V9qiB8C8co/maxresdefault.jpg",
+        name: "Google Photo",
+        isVideo: true,
+      },
+    ],
   },
   {
     id: 9,
@@ -403,6 +670,98 @@ const clubInfo: ClubInfo[] = [
     mainColor: "#5490A3",
     subColor: "#8CBCD0",
     textColor: "#FFFFFF",
+    gallery: [
+      {
+        url: "https://www.youtube.com/embed/1K-MJi2hZzM",
+        path: "https://i.ytimg.com/vi/1K-MJi2hZzM/maxresdefault.jpg",
+        name: "BIG Naughty (서동현) - Lovey Dovey",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/6EyFny2xiJA",
+        path: "https://i.ytimg.com/vi/6EyFny2xiJA/maxresdefault.jpg",
+        name: "EPISODE 1",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/FI0wa-qlywk",
+        path: "https://i.ytimg.com/vi/FI0wa-qlywk/maxresdefault.jpg",
+        name: "pH1 - You Don't Know My Name 1",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/qL_Fmj_Qlu8",
+        path: "https://i.ytimg.com/vi/qL_Fmj_Qlu8/maxresdefault.jpg",
+        name: "2022 선린인터넷고등학교 콘텐츠디자인과 홍보영상",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/vT9RBUAgL6A",
+        path: "https://i.ytimg.com/vi/vT9RBUAgL6A/maxresdefault.jpg",
+        name: "pH1 - You Don't Know My Name 2",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/vv62foThuH4",
+        path: "https://i.ytimg.com/vi/vv62foThuH4/maxresdefault.jpg",
+        name: "빈첸 - 허물",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/1XbzhVHZF50",
+        path: "https://i.ytimg.com/vi/1XbzhVHZF50/maxresdefault.jpg",
+        name: "낭만도시 파주 Teaser",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/CicRLPrnCuA",
+        path: "https://i.ytimg.com/vi/CicRLPrnCuA/maxresdefault.jpg",
+        name: "pH1 - Like Me",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/EBn85QMNRlY",
+        path: "https://i.ytimg.com/vi/EBn85QMNRlY/maxresdefault.jpg",
+        name: "중독",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/EorTYP4RlSo",
+        path: "https://i.ytimg.com/vi/EorTYP4RlSo/maxresdefault.jpg",
+        name: "ZionT - No Make UP",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/qL_Fmj_Qlu8",
+        path: "https://i.ytimg.com/vi/qL_Fmj_Qlu8/maxresdefault.jpg",
+        name: "2022 선린인터넷고등학교 콘텐츠디자인과 홍보영상",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/qL_Fmj_Qlu8",
+        path: "https://i.ytimg.com/vi/qL_Fmj_Qlu8/maxresdefault.jpg",
+        name: "2022 선린인터넷고등학교 콘텐츠디자인과 홍보영상",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/qL_Fmj_Qlu8",
+        path: "https://i.ytimg.com/vi/qL_Fmj_Qlu8/maxresdefault.jpg",
+        name: "2022 선린인터넷고등학교 콘텐츠디자인과 홍보영상",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/qL_Fmj_Qlu8",
+        path: "https://i.ytimg.com/vi/qL_Fmj_Qlu8/maxresdefault.jpg",
+        name: "2022 선린인터넷고등학교 콘텐츠디자인과 홍보영상",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/qL_Fmj_Qlu8",
+        path: "https://i.ytimg.com/vi/qL_Fmj_Qlu8/maxresdefault.jpg",
+        name: "2022 선린인터넷고등학교 콘텐츠디자인과 홍보영상",
+        isVideo: true,
+      },
+    ],
   },
   {
     id: 10,
@@ -439,6 +798,26 @@ const clubInfo: ClubInfo[] = [
     subColor: "#b2b2b2",
     mainColor: "#000000",
     textColor: "#ffffff",
+    gallery: [
+      {
+        url: "https://www.youtube.com/embed/tH006EAJ9dg",
+        path: "https://i.ytimg.com/vi/tH006EAJ9dg/maxresdefault.jpg",
+        name: "위그비",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/LVJSe-epa80",
+        path: "https://i.ytimg.com/vi/LVJSe-epa80/maxresdefault.jpg",
+        name: "Material You",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/2V9qiB8C8co",
+        path: "https://i.ytimg.com/vi/2V9qiB8C8co/maxresdefault.jpg",
+        name: "Google Photo",
+        isVideo: true,
+      },
+    ],
   },
 ];
 
