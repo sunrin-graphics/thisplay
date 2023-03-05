@@ -760,7 +760,7 @@ export default function Home() {
 
   const isApplicationDate = () => {
     const today = new Date();
-    const start = new Date("2023-03-11");
+    const start = new Date("2023-03-10");
     const end = new Date("2021-03-12");
     return start <= today && today <= end;
   };
@@ -930,7 +930,7 @@ export default function Home() {
               <PageTitle>당신을 초대합니다!</PageTitle>
               <Line />
               <Text1>
-                2023년 3월 10일 7교시
+                2023년 3월 8일 7교시
                 <br />
                 콘텐츠디자인과 실습실
               </Text1>
