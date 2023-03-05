@@ -182,7 +182,7 @@ const clubInfo: ClubInfo[] = [
     logo: "/images/mir.svg",
     field: "만화 및 일러스트레이션",
     member: 8,
-    site: "",
+    site: "https://sunrinmir.github.io/",
     sns: {
       instagram: "https://instagram.com/mir.__.official",
       facebook:
