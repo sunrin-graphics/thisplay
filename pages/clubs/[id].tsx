@@ -295,7 +295,7 @@ const Edcan = () => {
                     </Column2>
                   </ClubInfoGroup>
                   <ClubInfoGroup>
-                    <ClubInfoTitleText>수상 실적</ClubInfoTitleText>
+                    <ClubInfoTitleText>주요 수상 실적</ClubInfoTitleText>
                     <Column2>
                       {data.awards.map((item, i: number) => (
                         <ClubInfoContentText key={i}>
