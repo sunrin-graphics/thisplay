@@ -81,7 +81,7 @@ const clubInfo: ClubInfo[] = [
         isVideo: false,
       },
       {
-        url: "youtube embed",
+        url: "https://www.youtube.com/embed/Rnm0Sj3AOa8",
         path: "/images/v.friends/2023새해 포스터.png",
         name: "2023년도 새해 포스터",
         isVideo: true,
