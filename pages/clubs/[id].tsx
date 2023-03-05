@@ -204,7 +204,7 @@ const Column2 = styled.div`
 const ClubInfoContentText = styled.span`
   width: 560px;
 
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   line-height: 150%;
   color: rgba(51, 32, 24, 0.65);
@@ -212,7 +212,7 @@ const ClubInfoContentText = styled.span`
 
 const ClubInfoContentTextV2 = styled.span`
   width: 580px;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   line-height: 200%;
   color: rgba(51, 32, 24, 0.65);
