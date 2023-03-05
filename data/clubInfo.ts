@@ -274,7 +274,7 @@ const clubInfo: ClubInfo[] = [
   },
   {
     id: 7,
-    name: "Zer0pen",
+    name: "zer0pen",
     department: "소프트웨어과",
     desc: "게임 개발 전문 동아리",
     logo: "/images/zer0pen.svg",
@@ -286,7 +286,16 @@ const clubInfo: ClubInfo[] = [
       facebook: "https://www.facebook.com/zer0pen",
     },
     awards: [
-
+      "김윤빈 해커톤 은상",
+      "박민제 해커톤 은상",
+      "이원형 해커톤 은상",
+      "이원형 모콘 은상",
+      "이원형 프로그래밍 경시대회 은상",
+      "김상엽 모콘 금상",
+      "심재용 모콘 금상",
+      "차하람 그래픽 공모전 포스터 부문 동상",
+      "박세현 그래픽 공모전 캐릭터 디자인 부문 동상",
+      "김준호 프로그래밍 경시대회 동상",
     ],
     info:
       "제로픈은 선린인터넷고등학교 게임 개발 전문 동아리로, 대중적인 게임 엔진인 Unity를 활용하여, (2D/3D)게임 제작 과정의 전반적인 과정을 배웁니다.\n" +
@@ -309,7 +318,13 @@ const clubInfo: ClubInfo[] = [
       instagram: "http://instagram.com/aun0fficial/",
       facebook: "https://www.facebook.com/LiveActionFilmSociety",
     },
-    awards: [],
+    awards:[
+      "2019 영상 공모전 광고 부문 동상",
+      "2020 영상 공모전 단편영화 부문 금상",
+      "2021 영상 공모전 단편영화 부문 대상",
+      "2021 영상 공모전 광고 부문 은상",
+      "2022 영상 공모전 단편영화 부문 은상",
+    ],
     info: "선린인터넷고등학교의 실사 영상/영화 동아리 아우내는 '아름다운 우리의 내일을 위하여' 라는 뜻을 가지고 활동하는 동아리로 단편영화 자체제작 프로젝트를 통해 자신만의 영화를 제작할 수 있습니다.",
     subColor: "#b2b2b2",
     mainColor: "#000000",
