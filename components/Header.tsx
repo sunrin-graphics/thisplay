@@ -1,3 +1,6 @@
+// @ts-nocheck
+
+
 import styled from "@emotion/styled";
 import Image from "next/image";
 import Logo from "../assets/logo.svg";
@@ -63,11 +66,14 @@ const Header = (props: any) => {
     text-align: center;
     transition: all 0.2s ease-in-out;
     color: ${!nav ? "#FFFFFF" : "rgba(51, 37, 31, 0.8)"};
-    transition: all 0.2s ease-in-out;
     cursor: pointer;
+
     &:hover {
       opacity: 0.5;
     }
+    @media (max-width: 1300px) {
+    ${(props) => props.hideOnSmall && "display: none;"}
+  }
   `;
 
   const Title = styled.div`
@@ -108,6 +114,9 @@ const Header = (props: any) => {
   const Column23 = styled.div`
     display: flex;
     flex-direction: column;
+    @media (max-width: 1300px) {
+      display: none;
+    }
   `;
 
   const router = useRouter();
@@ -139,6 +148,45 @@ const Header = (props: any) => {
     setIsOpen(!isOpen);
   };
 
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWidth(window.innerWidth);
+      console.log(window.innerWidth);
+    }
+  }, []);
+
+  const [i1, setI1] = useState("시연회 소개")
+  const [i2, setI2] = useState("동아리 목록")
+
+  const [i3, setI3] = useState("질문과 답변")
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (width <= 1300) {
+      setI1("소개");
+      setI2("목록");
+      setI3("QnA");
+    }
+    else {
+      setI1("시연회 소개");
+      setI2("동아리 목록");
+      setI3("질문과 답변");
+    }
+  }, [width]);
+
   return (
     <Layout navBar={nav}>
       <Box>
@@ -150,10 +198,10 @@ const Header = (props: any) => {
           height={20}
         />
         <List>
-          <LinkStyled onClick={props.sc1}>시연회 소개</LinkStyled>
-          <LinkStyled onClick={props.sc2}>동아리 목록</LinkStyled>
-          <LinkStyled onClick={props.sc3}>질문과 답변</LinkStyled>
-          <LinkStyled onClick={props.sc4}>지원하기</LinkStyled>
+          <LinkStyled onClick={props.sc1}>{i1}</LinkStyled>
+          <LinkStyled onClick={props.sc2}>{i2}</LinkStyled>
+          <LinkStyled onClick={props.sc3}>{i3}</LinkStyled>
+          <LinkStyled hideOnSmall={true} onClick={props.sc4}>지원하기</LinkStyled>
         </List>
         <Column23>
           <ClubSelectButton onClick={() => changeModal()}>
@@ -208,6 +256,15 @@ const Box = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  @media (max-width: 1300px) {
+    width: calc(100% - 48px);
+    left: 48px;
+  }
+  @media (max-width: 550px) {
+    width: calc(100% - 40px);
+    left: 20px;
+  }
 `;
 
 const List = styled.ul`
@@ -215,4 +272,12 @@ const List = styled.ul`
   justify-content: space-between;
   align-items: center;
   gap: 24px;
+  @media (max-width: 1300px) {
+    position: absolute;
+    right: 48px;
+  }
+  @media (max-width: 550px) {
+    position: absolute;
+    right: 20px;
+  }
 `;
