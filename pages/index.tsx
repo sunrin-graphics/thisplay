@@ -17,6 +17,11 @@ import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import GrayBox2 from "@/components/GrayBox2";
 
 const Layout = styled.div`
   width: 100vw;
@@ -39,8 +44,8 @@ const IntroduceHelp = styled.div`
     height: 108px;
   }
   @media (max-width: 550px) {
-    width: calc(100% - 40px);
-    height: 90px;
+    width: 100%;
+    height: auto;
     margin-top: 24px;
   }
 `;
@@ -255,6 +260,9 @@ const Section3 = styled.div`
   @media (max-width: 1300px) {
     height: 882px;
   }
+  @media (max-width: 550px) {
+    height: 891px;
+  }
 `;
 
 const Section3Body = styled.div`
@@ -265,14 +273,12 @@ const Section3Body = styled.div`
   align-items: center;
   @media (max-width: 1300px) {
     max-width: 940px;
-    left: 20px;
     height: 602px;
   }
   @media (max-width: 550px) {
     width: 350px;
     flex-direction: column;
-    height: 881px;
-    left: 20px;
+    height: 817px;
   }
 `;
 
@@ -345,6 +351,9 @@ const Parent = styled.div`
   flex-direction: column;
   @media (max-width: 1300px) {
     height: 1054px;
+  }
+  @media (max-width: 550px) {
+    height: 918px;
   }
 `;
 
@@ -455,39 +464,49 @@ const LttTitle = styled.div`
 
 const Child = styled.div`
   width: 1218px;
-  height: 728px;
+  gap: 32px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   @media (max-width: 1300px) {
     width: 660px;
     height: 886px;
   }
-  @media (max-width: 850px) {
+  @media (max-width: 550px) {
     width: 100%;
+    gap: 24px;
   }
 `;
 
 const Emphasize = styled.div`
   width: 100%;
-  height: 72px;
+  gap: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  @media (max-width: 550px) {
+    gap: 8px;
+  }
 `;
 
 const Title = styled.div`
   font-size: 28px;
   color: #332c29;
   font-weight: 500;
+  @media (max-width: 550px) {
+    font-size: 25px;
+  }
 `;
 
 const Desc = styled.div`
   font-size: 20px;
   color: #33251f;
   opacity: 0.8;
+  @media (max-width: 550px) {
+    font-size: 15px;
+  }
 `;
 
 const ClubParent = styled.div`
@@ -518,6 +537,13 @@ const CImage = styled(Image)`
   background-size: cover;
 `;
 
+const DImage = styled(Image)`
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: contain;
+`;
+
 const Parent2 = styled.div`
   width: 100%;
   display: flex;
@@ -526,6 +552,9 @@ const Parent2 = styled.div`
   height: 778px;
   @media (max-width: 1300px) {
     height: 804px;
+  }
+  @media (max-width: 550px) {
+    height: 554px;
   }
 `;
 
@@ -538,6 +567,10 @@ const Child2 = styled.div`
   @media (max-width: 1300px) {
     width: 940px;
   }
+  @media (max-width: 550px) {
+    width: 100%;
+    gap: 24px;
+  }
 `;
 
 const Zone = styled.div`
@@ -546,6 +579,9 @@ const Zone = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  @media (max-width: 550px) {
+    gap: 8px;
+  }
 `;
 
 const Part = styled.div`
@@ -576,6 +612,9 @@ const AutoBox = styled.div`
   @media (max-width: 1300px) {
     width: 303px;
   }
+  @media (max-width: 550px) {
+    width: 350px;
+  }
 `;
 
 const ParentBox = styled.div`
@@ -602,12 +641,18 @@ const ZoneTitle = styled.div`
   font-size: 28px;
   color: #332c29;
   font-weight: 500;
+  @media (max-width: 550px) {
+    font-size: 25px;
+  }
 `;
 
 const ZoneDesc = styled.div`
   font-size: 20px;
   color: #33251f;
   opacity: 0.8;
+  @media (max-width: 550px) {
+    font-size: 15px;
+  }
 `;
 
 const Mg2 = styled.div`
@@ -618,6 +663,31 @@ const Mg2 = styled.div`
 const Icon2 = styled.span`
   font-size: 20px;
   font-weight: 600;
+`;
+
+const CustomSwiper = styled(Swiper)`
+  width: 100%;
+  height: 780px;
+  @media (min-width: 550px) {
+    display: none;
+  }
+`;
+
+const CustomSwiper2 = styled(Swiper)`
+  width: 100%;
+  height: 397px;
+  @media (min-width: 550px) {
+    display: none;
+  }
+`;
+
+const CustomSwiperSlide = styled(SwiperSlide)`
+  width: 100%;
+  height: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 `;
 
 export default function Home() {
@@ -934,7 +1004,7 @@ export default function Home() {
               </IntroduceTitle>
               <IntroduceDesc dangerouslySetInnerHTML={{ __html: introTxt }} />
               <IntroduceHelp>
-                <Image src={Help} alt="image" />
+                <DImage src={Help} alt="image" />
               </IntroduceHelp>
             </Section3Introduce>
             <Section3Illu>
@@ -942,18 +1012,7 @@ export default function Home() {
             </Section3Illu>
           </Section3Body>
         </Section3>
-        <Swiper
-          spaceBetween={50}
-          slidesPerView={3}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
-        >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
-          ...
-        </Swiper>
+
         <Parent ref={ref2}>
           <Child>
             <Emphasize>
@@ -980,6 +1039,36 @@ export default function Home() {
                 </>
               ))}
             </ClubParent>
+
+            <CustomSwiper
+              modules={[Pagination]}
+              slidesPerView={1}
+              pagination={{ clickable: false }}
+            >
+              {[...Array(2)].map((_, i) => (
+                <CustomSwiperSlide key={i}>
+                  {[...Array(5)].map((_, j) => {
+                    const club = clubList[i * 5 + j];
+                    return (
+                      <div
+                        key={club.id}
+                        onClick={() => {
+                          localStorage.setItem("sc", window.scrollY);
+                          router.push(`/clubs/${club.id}`);
+                        }}
+                      >
+                        <GrayBox2
+                          name={club.name}
+                          department={club.department}
+                          desc={club.desc}
+                          logo={club.logo}
+                        />
+                      </div>
+                    );
+                  })}
+                </CustomSwiperSlide>
+              ))}
+            </CustomSwiper>
           </Child>
         </Parent>
         <Parent2 ref={ref3}>
@@ -1000,6 +1089,27 @@ export default function Home() {
                 </>
               ))}
             </Part>
+            <CustomSwiper2
+              modules={[Pagination]}
+              slidesPerView={1}
+              pagination={{ clickable: false }}
+            >
+              {[...Array(4)].map((_, i) => (
+                <CustomSwiperSlide key={i}>
+                  {[...Array(2)].map((_, j) => {
+                    const question = questionList[i * 2 + j];
+                    return (
+                      <AutoBox key={i}>
+                        <Title2>{question.title}</Title2>
+                        <Desc2
+                          dangerouslySetInnerHTML={{ __html: question.desc }}
+                        ></Desc2>
+                      </AutoBox>
+                    );
+                  })}
+                </CustomSwiperSlide>
+              ))}
+            </CustomSwiper2>
           </Child2>
         </Parent2>
 
