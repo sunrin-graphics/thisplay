@@ -932,7 +932,7 @@ export default function Home() {
               <Text1>
                 2023년 3월 8일 7교시
                 <br />
-                콘텐츠디자인과 실습실
+                선린인터넷고등학교 영상교육관
               </Text1>
             </SpaceBetween>
             <SpaceBetweenV2>

@@ -553,7 +553,7 @@ const clubInfo: ClubInfo[] = [
     logo: "/images/zer0pen.svg",
     field: "게임 디자이너",
     member: 3,
-    site: "https://zer0pen.kr/",
+    site: "http://zer0pen.github.io/",
     sns: {
       instagram: "https://www.instagram.com/zer0pen_/",
       facebook: "https://www.facebook.com/zer0pen",
@@ -1039,11 +1039,6 @@ const clubInfo: ClubInfo[] = [
     mainColor: "#000000",
     textColor: "#ffffff",
     gallery: [
-      {
-        path: "https://cdn.discordapp.com/attachments/1082011767103832084/1082046498625294376/png.png",
-        name: "아우내 포스터",
-        isVideo: false,
-      },
       {
         url: "https://www.youtube.com/embed/E7Bd-_zRF_0",
         path: "https://i.ytimg.com/vi/E7Bd-_zRF_0/maxresdefault.jpg",
