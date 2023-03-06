@@ -650,6 +650,49 @@ const clubInfo: ClubInfo[] = [
         name: "FallingRock (박세현, RG 김준서, 자의누리 안재민)",
         isVideo: true,
       },
+      {
+        url: "https://www.youtube.com/embed/fZZsn_c-cGo",
+        path: "https://i.ytimg.com/vi/fZZsn_c-cGo/maxresdefault.jpg",
+        name: "Zombie (안도현)",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/DUM_NQ8An5o",
+        path: "https://i.ytimg.com/vi/DUM_NQ8An5o/maxresdefault.jpg",
+        name: "fx trail (박세현)",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/FoJeQXCHgw0",
+        path: "https://i.ytimg.com/vi/FoJeQXCHgw0/maxresdefault.jpg",
+        name: "GUSSO (김유빈, 현동윤, 이윤혁)",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/J1hhHgFddoI",
+        path: "https://i.ytimg.com/vi/J1hhHgFddoI/maxresdefault.jpg",
+        name: "야스오 키우기 (여준혁, 박민제, 김지성, 신수아, 박세현)",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/Mua2VJsXCsI",
+        path: "https://i.ytimg.com/vi/Mua2VJsXCsI/maxresdefault.jpg",
+        name: "회피Lv 999 (안도현)",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/V-Fto-LcwSY",
+        path: "https://i.ytimg.com/vi/V-Fto-LcwSY/maxresdefault.jpg",
+        name: "검 키우기 (방정연)",
+        isVideo: true,
+      },
+      {
+        url: "https://www.youtube.com/embed/wQ6WNqcxpEM",
+        path: "https://i.ytimg.com/vi/wQ6WNqcxpEM/maxresdefault.jpg",
+        name: "DrwB (박세현, RG 김준서, 자의누리 안재민)",
+        isVideo: true,
+      },
+
     ],
   },
   {
