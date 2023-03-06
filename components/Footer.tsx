@@ -114,7 +114,7 @@ const Footer = () => {
           <Content>웹사이트</Content>
           <Contents>
             <Content>
-              개발 <Bold>주현명 이하람</Bold>
+              개발 <Bold>주현명 이하람 김성빈</Bold>
             </Content>
             <Content>
               디자인 <Bold>표한빈 백시현 박정우</Bold>
