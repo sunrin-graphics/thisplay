@@ -798,7 +798,7 @@ const clubInfo: ClubInfo[] = [
         isVideo: false,
       },
       {
-        path: "https://cdn.discordapp.com/attachments/1082010437396217946/1082043420450750494/273a241a5df874f0.jpg",
+        path: "https://cdn.discordapp.com/attachments/1082010437396217946/1082290653783924746/KakaoTalk_Photo_2023-03-06-22-14-37_001.png",
         name: "독도지킴이",
         isVideo: false,
       },
@@ -848,7 +848,7 @@ const clubInfo: ClubInfo[] = [
         isVideo: false,
       },
       {
-        path: "https://cdn.discordapp.com/attachments/1082010437396217946/1082044299262308413/5faf1182a12fa851.jpg",
+        path: "https://cdn.discordapp.com/attachments/1082010437396217946/1082290654165614622/KakaoTalk_Photo_2023-03-06-22-14-38_002.png",
         name: "입심이",
         isVideo: false,
       },
@@ -857,13 +857,11 @@ const clubInfo: ClubInfo[] = [
         name: "두드림",
         isVideo: false,
       },
-      /*
       {
-        path: "https://cdn.discordapp.com/attachments/1082010437396217946/1082044302173151293/34e6ddeadf876f3a.jpg",
-        name: "선린라이프",
+        path: "https://cdn.discordapp.com/attachments/1082010437396217946/1082292344281383032/fc41040cf1007a62.jpg",
+        name: "DORELAE",
         isVideo: false,
       },
-      */
       {
         path: "https://cdn.discordapp.com/attachments/1082010437396217946/1082046081610825928/Frame_1.png",
         name: "무드등",
@@ -1029,10 +1027,6 @@ const clubInfo: ClubInfo[] = [
       "",
       "선린인터넷고등학교 영상공모전 단편영화 부문 대상",
       "선린인터넷고등학교 영상공모전 광고 부문 은상",
-      "",
-      "2022년",
-      "",
-      "선선린인터넷고등학교 영상공모전 단편영화 부문 은상",
     ],
     info: "선린인터넷고등학교의 실사 영상/영화 동아리 아우내는 '아름다운 우리의 내일을 위하여' 라는 뜻을 가지고 활동하는 동아리로 단편영화 자체제작 프로젝트를 통해 자신만의 영화를 제작할 수 있습니다.",
     subColor: "#b2b2b2",
@@ -1046,8 +1040,8 @@ const clubInfo: ClubInfo[] = [
         isVideo: true,
       },
       {
-        url: "https://www.youtube.com/embed/7bOoY_MwkFM",
-        path: "https://i.ytimg.com/vi/7bOoY_MwkFM/maxresdefault.jpg",
+        url: "https://www.youtube.com/embed/qQ0H1Vzoyn4",
+        path: "https://i.ytimg.com/vi/qQ0H1Vzoyn4/maxresdefault.jpg",
         name: "아우내에서 그럭저럭 지내요",
         isVideo: true,
       },
