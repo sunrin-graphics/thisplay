@@ -59,15 +59,15 @@ const HeaderV2 = () => {
     { id: 2, title: "MIR", move: 4 },
     { id: 3, title: "TATE", move: 5 },
     { id: 4, title: "자의누리", move: 9 },
-    { id: 5, title: "아우내", move: 8 },
+    { id: 5, title: "아우내", move: 10 },
   ];
 
   const SW_data = [
     { id: 1, title: "EDCAN", move: 2 },
     { id: 2, title: "IWOP", move: 3 },
-    { id: 3, title: "zer0pen", move: 7 },
-    { id: 4, title: "RG", move: 6 },
-    { id: 5, title: "App:ple Pi", move: 10 },
+    { id: 3, title: "zer0pen", move: 6 },
+    { id: 4, title: "RG", move: 7 },
+    { id: 5, title: "App:ple Pi", move: 8 },
   ];
 
   return (
