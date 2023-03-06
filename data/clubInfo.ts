@@ -473,8 +473,8 @@ const clubInfo: ClubInfo[] = [
     member: 8,
     site: "-",
     sns: {
-      instagram: "https://www.instagram.com/sunrin_iwop/",
-      facebook: "https://www.facebook.com/iwop_sunrin",
+      instagram: "https://www.instagram.com/tate__official/",
+      facebook: "https://www.facebook.com/TATEDesignResearchClub",
     },
     awards: [],
     info: "선린인터넷고등학교 콘텐츠디자인과 전공동아리 TATE는 14년 동안 이어져 온 디자인 연구 동아리로 선배들과의 화목하고 자유로운 분위기 속에서 일러스트레이터, 포토샵, 3D MAX 등 다양한 프로그램을 배우고 자신의 생각을 펼칠 수 있는 동아리입니다. 또한 그래픽 디자인 수업을 들으며 자신의 전공 실력이 향상되고 다양한 분야의 디자인을 접할 수 있습니다.",
@@ -882,7 +882,7 @@ const clubInfo: ClubInfo[] = [
     site: "-",
     sns: {
       instagram: "https://www.instagram.com/junr_official/",
-      facebook: "www.facebook.com/centerworld",
+      facebook: "https://www.facebook.com/centerworld",
     },
     awards: [
       "2019년",
