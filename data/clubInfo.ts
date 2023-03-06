@@ -857,11 +857,13 @@ const clubInfo: ClubInfo[] = [
         name: "두드림",
         isVideo: false,
       },
+      /*
       {
         path: "https://cdn.discordapp.com/attachments/1082010437396217946/1082044302173151293/34e6ddeadf876f3a.jpg",
         name: "선린라이프",
         isVideo: false,
       },
+      */
       {
         path: "https://cdn.discordapp.com/attachments/1082010437396217946/1082046081610825928/Frame_1.png",
         name: "무드등",
