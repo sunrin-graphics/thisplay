@@ -236,6 +236,7 @@ const Modal = styled.div`
   box-shadow: 0px 12px 16px rgba(0, 0, 0, 0.03);
   border: 1px solid #dddddd;
   border-radius: 12px;
+  margin-top: 20px;
   top: 40px;
   right: calc(50vw - 600px);
   display: flex;
