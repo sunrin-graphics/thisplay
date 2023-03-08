@@ -286,7 +286,7 @@ const clubInfo: ClubInfo[] = [
         logo: "/images/iwop.svg",
         field: "UI/UX 디자이너",
         member: 3,
-        site: "https://iwop.kr/",
+        site: "https://iwop.github.io",
         sns: {
             instagram: "https://www.instagram.com/sunrin_iwop/",
             facebook: "https://www.facebook.com/iwop_sunrin",
