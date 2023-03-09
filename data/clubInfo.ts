@@ -371,6 +371,28 @@ const clubInfo: ClubInfo[] = [
                 name: "Ingopass (w/ EDCAN 백시현, KDMHS 조현우)",
                 isVideo: true,
             },
+            {
+                path: "https://cdn.discordapp.com/attachments/1082011582650912858/1083248517549674607/iwop.png",
+                name: "IWOP 방명록",
+                isVideo: false,
+            },
+            {
+                path: "https://cdn.discordapp.com/attachments/1082011582650912858/1083249864491683890/weatherwebapp.png",
+                name: "Weather Web-App",
+                isVideo: false,
+            },
+            {
+                url: "https://www.youtube.com/embed/G4mRTRpygjk",
+                path: "https://i.ytimg.com/vi/G4mRTRpygjk/maxresdefault.jpg",
+                name: "FSKE",
+                isVideo: true,
+            },
+            {
+                url: "https://www.youtube.com/embed/aT2_OZ4VTxY",
+                path: "https://i.ytimg.com/vi/aT2_OZ4VTxY/maxresdefault.jpg",
+                name: "RE:HEART",
+                isVideo: true,
+            },
         ],
     },
     {
