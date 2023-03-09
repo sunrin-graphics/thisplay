@@ -12,7 +12,7 @@ const Layout = styled.div`
   --main-color: rgba(51, 37, 31, 0.8);
   --gray-color: rgba(51, 37, 31, 0.2);
   width: 100vw;
-  height: 150vh;
+  height: ${props => props.height};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +88,12 @@ const SubmitNext = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: opacity 0.5s ease-in-out;
   align-items: center;
+`
+
+const MainQuestion = styled.div`
+  
 `
 
 const Form = () => {
@@ -117,19 +122,49 @@ const Form = () => {
       setWidth(widthRef.current)
 
       if (club1[0] && club2[0] && club3[0]) {
-        setInputInfo([true])
+        setInputInfoBoolean(true)
+        setHeight("150vh")
+        setMent(`
+          아래는 기본 학생 정보입니다.
+          양식에 맞도록 모든 정보를 정확하게 기입해주세요.
+          다음 페이지부터 동아리별 질문이 시작됩니다.
+        `)
       }
 
+      if (inputInfo.name && inputInfo.schoolNum && inputInfo.phone) {
+        setNext(true)
+      }
       return () =>
         clearInterval(interval);
     })
   });
 
+  const [height, setHeight] = useState("90vh");
+  const [ment, setMent] = useState(`
+    먼저 동아리 지망 3개를 선택해주세요.
+    지망 순위가 없을 경우 “지망없음"을 선택하세요.
+  `)
+  const [next, setNext] = useState(false);
+  const [nextChapter, setNextChapter] = useState(false);
   const [club1, setClub1] = useState([false, "1지망"])
   const [club2, setClub2] = useState([false, "2지망"])
   const [club3, setClub3] = useState([false, "3지망"])
 
-  const [inputInfo, setInputInfo] = useState([false, "", "", ""])
+  const [inputInfoBoolean, setInputInfoBoolean] = useState(false)
+  const [inputInfo, setInputInfo] = useState({
+    schoolNum: "",
+    name: "",
+    phone: "",
+  });
+
+  const ch = () => {
+    setNextChapter(true);
+    setHeight("180vh");
+    setMent(`
+        ㅇㄷ
+    `)
+  return
+  }
 
   return (
     <>
@@ -151,9 +186,7 @@ const Form = () => {
               동아리 지원
             </Title>
             <Desc>
-              3지망까지 선택할 수 있습니다. 공통 질문에 답한 후, <br/>
-              동아리별 선택질문을 답해주세요. 포트폴리오 제출은 선택입니다. <br/>
-              지망 순위가 없을 경우 “지망없음"을 선택하세요. <br/>
+              <pre style={{ fontFamily: "SUIT" }}>{ment}</pre>
             </Desc>
           </ApplyTitle>
           <ChooseUnit>
@@ -182,60 +215,86 @@ const Form = () => {
               {club3[1]}
             </UnitBorder>
           </ChooseUnit>
-          { inputInfo[0] &&
-              <SubmitNext>
-               
-                <Box
-                  title="학번"
-                  desc="필수 입력사항입니다."
-                  placeholder="학번 5자리를 정확하게 입력해주세요"
-                  height="56px"
-                  value={inputInfo[1]}
-                  onPaste={(event) => setInputInfo(
-                    [true, event.target.value, inputInfo[2], inputInfo[3]]
-                  )}
-                  onChange={(event) => setInputInfo(
-                    [true, event.target.value, inputInfo[2], inputInfo[3]]
-                  )}/>
+          { !nextChapter &&
+             inputInfoBoolean &&
+                <SubmitNext>
+                
+                  <Box
+                    title="학번"
+                    desc="필수 입력사항입니다."
+                    placeholder="학번 5자리를 정확하게 입력해주세요"
+                    height="56px"
+                    value={inputInfo[1]}
+                    onPaste={(event) => setInputInfo({
+                      ...inputInfo,
+                      schoolNum: event.target.value,
+                    })}
+                    onChange={(event) => setInputInfo({
+                      ...inputInfo,
+                      schoolNum: event.target.value,
+                    })}/>
 
-                <Box
-                  title="이름"
-                  desc="필수 입력사항입니다."
-                  placeholder="홍길동"
-                  height="56px"
-                  value={inputInfo[2]}
-                  onPaste={(event) => setInputInfo(
-                    [true, inputInfo[1], event.target.value, inputInfo[3]]
-                  )}
-                  onChange={(event) => setInputInfo(
-                    [true, inputInfo[1], event.target.value, inputInfo[3]]
-                  )}/>
+                  <Box
+                    title="이름"
+                    desc="필수 입력사항입니다."
+                    placeholder="홍길동"
+                    height="56px"
+                    value={inputInfo[2]}
+                    onPaste={(event) => setInputInfo({
+                      ...inputInfo,
+                      name: event.target.value,
+                    })}
+                    onChange={(event) => setInputInfo({
+                      ...inputInfo,
+                      name: event.target.value,
+                    })}/>
 
-                <Box
-                  title="전화번호"
-                  desc="필수 입력사항입니다."
-                  placeholder="010 1234 5678"
-                  height="56px"
-                  value={inputInfo[3]}
-                  onPaste={(event) => setInputInfo(
-                    [true, inputInfo[1], inputInfo[2], event.target.value]
-                  )}
-                  onChange={(event) => setInputInfo(
-                    [true, inputInfo[1], inputInfo[2], event.target.value]
-                  )}/>  
+                  <Box
+                    title="전화번호"
+                    desc="필수 입력사항입니다."
+                    placeholder="010 1234 5678"
+                    height="56px"
+                    value={inputInfo[3]}
+                    onPaste={(event) => setInputInfo({
+                      ...inputInfo,
+                      phone: event.target.value,
+                    })}
+                    onChange={(event) => setInputInfo({
+                      ...inputInfo,
+                      phone: event.target.value,
+                    })}/>
 
-                <Submit>
-                  <Button
-                    // onIncrement={submitOK}
-                    color={false}
-                    width="130px" 
-                    title="다음 단계"
-                  >
-                  </Button>
-                </Submit>
+                  <Submit>
+                    <Button
+                      onIncrement={() => ch()}
+                      color={next}
+                      width="130px" 
+                      title="다음 단계"
+                    >
+                    </Button>
+                  </Submit>
 
-              </SubmitNext>
-            }
+                </SubmitNext>
+              }
+              {
+                nextChapter &&
+                <SubmitNext>
+                  <Box
+                    title="이름"
+                    desc="필수 입력사항입니다."
+                    placeholder="홍길동"
+                    height="56px"
+                    value={inputInfo[2]}
+                    onPaste={(event) => setInputInfo({
+                      ...inputInfo,
+                      name: event.target.value,
+                    })}
+                    onChange={(event) => setInputInfo({
+                      ...inputInfo,
+                      name: event.target.value,
+                    })}/>
+                </SubmitNext>
+              }
         </Child>
       </Layout>
     </>
