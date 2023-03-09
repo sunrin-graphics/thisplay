@@ -27,6 +27,11 @@ const Box = styled.div`
     width: 100%;
     padding: 0 20px;
   }
+
+  @media screen and (max-width: 1408px) {
+    width: 100%;
+    padding: 0 20px;
+  }
 `;
 
 const ClubSelectButton = styled.button`
@@ -171,6 +176,7 @@ const Modal = styled.div`
   padding: 20px;
   position: absolute;
   animation: ${slideIn} 0.2s ease-in-out;
+  margin-top: 20px;
 `;
 const ModalBody = styled.div`
   width: 224px;
