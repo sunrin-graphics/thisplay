@@ -825,7 +825,7 @@ export default function Home() {
 
   useEffect(() => {
     // const targetTime = new Date('2023-03-11T00:00:00.000Z').getTime();
-    const targetTime = new Date("2023-03-14T07:00:00.000Z").getTime();
+    const targetTime = new Date("2023-03-13T00:00:00.000Z").getTime();
 
     const updateLeftTime = () => {
       const now = new Date().getTime();
