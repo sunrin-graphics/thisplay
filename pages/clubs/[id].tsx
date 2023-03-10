@@ -295,6 +295,11 @@ const Edcan = () => {
     else document.body.style.overflow = "unset";
   }, [modal]);
 
+  const moveLink = (e) => {
+    window.open(e, "_blank");
+    return;
+  }
+
   return (
     <>
       <Head>
@@ -462,6 +467,7 @@ const Edcan = () => {
                     </ClubInfoContentV3>
                   </ClubInfoBox>
                   <ApplicationButton
+                    onClick={() => moveLink(data.joinLink)}
                     style={{
                       backgroundColor: data.mainColor,
                       color: data.textColor,

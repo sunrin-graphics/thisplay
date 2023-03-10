@@ -17,6 +17,7 @@ type ClubInfo = {
     info: string;
     mainColor: string;
     subColor: string;
+    joinLink: string,
     textColor: string;
     gallery: {
         path: string;
@@ -36,6 +37,7 @@ const clubInfo: ClubInfo[] = [
         logo: "/images/v.friends.svg",
         field: "그래픽 디자이너",
         member: 8,
+        joinLink: "https://forms.gle/mUM6cGEL67iUZvfd9",
         site: "https://vfriends.github.io/",
         sns: {
             instagram: "https://www.instagram.com/v.friends_official/",
@@ -166,6 +168,7 @@ const clubInfo: ClubInfo[] = [
         field: "UI/UX 디자이너",
         member: 3,
         site: "https://edcan.kr/",
+        joinLink: "https://forms.gle/j9Q8KVyna5vgCJBo6",
         sns: {
             instagram: "https://www.instagram.com/sunrin_edcan/",
             facebook: "https://www.facebook.com/sunrinedcan",
@@ -277,7 +280,6 @@ const clubInfo: ClubInfo[] = [
             },
         ],
     },
-
     {
         id: 3,
         name: "IWOP",
@@ -285,6 +287,7 @@ const clubInfo: ClubInfo[] = [
         desc: "웹 개발 동아리",
         logo: "/images/iwop.svg",
         field: "UI/UX 디자이너",
+        joinLink: "https://forms.gle/o6zzzU5GuRLsfx2v9",
         member: 3,
         site: "https://iwop.github.io",
         sns: {
@@ -398,6 +401,7 @@ const clubInfo: ClubInfo[] = [
     {
         id: 4,
         name: "MIR",
+        joinLink: "https://forms.gle/1zTsFtTrhVE5DhPm6",
         department: "콘텐츠디자인과",
         desc: "만화·일러스트레이션 동아리",
         logo: "/images/mir.svg",
@@ -512,6 +516,7 @@ const clubInfo: ClubInfo[] = [
     {
         id: 5,
         name: "TATE",
+        joinLink: "https://forms.gle/uz245U1pLQgiKfcn8",
         department: "콘텐츠디자인과",
         desc: "디자인 연구 동아리",
         logo: "/images/tate.svg",
@@ -608,11 +613,11 @@ const clubInfo: ClubInfo[] = [
             },
         ],
     },
-
     {
         id: 6,
         name: "zer0pen",
         department: "소프트웨어과",
+        joinLink: "https://forms.gle/uY5Hg3PA6e244ZL26",
         desc: "게임 개발 전문 동아리",
         logo: "/images/zer0pen.svg",
         field: "게임 디자이너",
@@ -740,6 +745,7 @@ const clubInfo: ClubInfo[] = [
         name: "RG",
         department: "소프트웨어과",
         desc: "게임 개발 전문 동아리",
+        joinLink: "https://forms.gle/KsXpZRizX1PZ5sht7",
         logo: "/images/rg.svg",
         field: "게임 디자이너",
         member: 3,
@@ -869,6 +875,7 @@ const clubInfo: ClubInfo[] = [
         id: 8,
         name: "App:ple Pi",
         department: "소프트웨어과",
+        joinLink: "https://forms.gle/h3MrYTX2Kz9JCV8Q9",
         desc: "앱 개발·창업 동아리",
         logo: "/images/apple.pi.svg",
         field: "UI/UX 디자이너",
@@ -991,6 +998,7 @@ const clubInfo: ClubInfo[] = [
         desc: "모션그래픽 제작 전문 동아리",
         logo: "/images/junr.svg",
         field: "영상 편집, 그래픽 디자인",
+        joinLink: "https://forms.gle/wJgjKc7cxzeET16b7",
         member: 8,
         site: "-",
         sns: {
@@ -1124,6 +1132,7 @@ const clubInfo: ClubInfo[] = [
         logo: "/images/aun.svg",
         field: "영상 편집, 그래픽 디자인",
         member: 8,
+        joinLink: "https://forms.gle/Bwan5Spu5hFHxnVeA",
         site: "-",
         sns: {
             instagram: "http://instagram.com/aun0fficial/",

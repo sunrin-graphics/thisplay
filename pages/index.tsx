@@ -191,9 +191,9 @@ const ApplyButton = styled.button`
     color: #000; /* 텍스트 색상을 투명하게 설정 */
     mix-blend-mode: screen;
   }
-  @media (max-width: 1300px) {
+  /* @media (max-width: 1300px) {
     display: none;
-  }
+  } */
 `;
 
 const ApplyButtonDisabled = styled.div`
@@ -825,7 +825,7 @@ export default function Home() {
 
   useEffect(() => {
     // const targetTime = new Date('2023-03-11T00:00:00.000Z').getTime();
-    const targetTime = new Date("2023-03-11T07:00:00.000Z").getTime();
+    const targetTime = new Date("2023-03-14T07:00:00.000Z").getTime();
 
     const updateLeftTime = () => {
       const now = new Date().getTime();
@@ -975,18 +975,12 @@ export default function Home() {
                 </InstagramButton>
               </Hid>
             </SpaceBetweenV2>
-            {isApplicationDate() ? (
-              <ApplyButton>
-                동아리 신청 마감까지 {leftHour} : {leftMinute} : {leftSecond}{" "}
-                <Icon2 className={"material-symbols-outlined"}>
-                  arrow_forward
-                </Icon2>{" "}
-              </ApplyButton>
-            ) : (
-              <ApplyButtonDisabled>
-                동아리 신청 기간이 아닙니다.
-              </ApplyButtonDisabled>
-            )}
+            <ApplyButton onClick={() => window.open("https://forms.gle/quQ9FfqZWHAxH8BCA", "_BLANK")}>
+              신청 마감까지 {leftHour} : {leftMinute} : {leftSecond}{" "}
+              <Icon2 className={"material-symbols-outlined"}>
+                arrow_forward
+              </Icon2>{" "}
+            </ApplyButton>
           </Views>
           <FixedCenter>
             <div onClick={gotoScrollDown}>
@@ -1126,6 +1120,15 @@ export default function Home() {
           </Child2>
         </Parent2>
 
+          <LeftContainer>
+          <Ltb>
+            <LtbTxt>지망서 작성 바로가기</LtbTxt>
+            <Icon2 className={"material-symbols-outlined"}>
+              arrow_forward
+            </Icon2>
+          </Ltb>
+        </LeftContainer>
+
         <LastSection ref={ref4}>
           <Container>
             <LeftContainer>
@@ -1133,35 +1136,28 @@ export default function Home() {
                 <LttTitle>즐거운 시연회 관람 되셨나요?</LttTitle>
                 <LttDesc>
                   이제 우리들의 놀이터에 당신을 초대합니다. <br />
-                  면접 지원을 통해 여러분이 함께 하고 싶은 동아리를
-                  선택해주세요!
+                  지원서를 작성하고 함께 하고 싶은 동아리를 선택해주세요!
                 </LttDesc>
                 <LttCaution>
-                  * 3월 10일부터 12일까지 지원폼이 공개됩니다.
+                  * 지망서 작성 후, 동아리별 페이지에서 지원서를 꼭 작성하셔야 합니다.
                 </LttCaution>
               </Ltt>
-              {isApplicationDate() ? (
-                <Ltb>
-                  <LtbTxt>면접 지원폼 바로가기</LtbTxt>
-                  <Icon2 className={"material-symbols-outlined"}>
-                    arrow_forward
-                  </Icon2>
-                </Ltb>
-              ) : (
-                <Ltb2>
-                  <LtbTxt>지원 가능 시간이 아닙니다.</LtbTxt>
-                </Ltb2>
-              )}
+              <Ltb  onClick={() => window.open("https://forms.gle/quQ9FfqZWHAxH8BCA", "_BLANK")}>
+                <LtbTxt>지망서 작성 바로가기</LtbTxt>
+                <Icon2 className={"material-symbols-outlined"}>
+                  arrow_forward
+                </Icon2>
+              </Ltb>
             </LeftContainer>
             <RightContainer>
               {/* <M>지원폼 공개까지 <br/></M> */}
               <M>
-                지원폼 공개까지 <br />
+                동아리 지원 마감까지 <br />
               </M>
               <B>
                 {leftHour} : {leftMinute} : {leftSecond}
               </B>{" "}
-              <Sb>남았어요</Sb>
+              <Sb>남았어요.</Sb>
             </RightContainer>
           </Container>
         </LastSection>
