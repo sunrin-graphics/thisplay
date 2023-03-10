@@ -1136,10 +1136,10 @@ export default function Home() {
                 <LttTitle>즐거운 시연회 관람 되셨나요?</LttTitle>
                 <LttDesc>
                   이제 우리들의 놀이터에 당신을 초대합니다. <br />
-                  지원서를 작성하고 함께 하고 싶은 동아리를 선택해주세요!
+                  내게 맞는 동아리를 둘러본 뒤 동아리를 선택해주세요!
                 </LttDesc>
                 <LttCaution>
-                  * 지망서 작성 후, 동아리별 페이지에서 지원서를 꼭 작성하셔야 합니다.
+                  * 지망 폼 작성 후, 동아리별 페이지에서 지원 폼도 꼭 작성하셔야 합니다.
                 </LttCaution>
               </Ltt>
               <Ltb  onClick={() => window.open("https://forms.gle/quQ9FfqZWHAxH8BCA", "_BLANK")}>
