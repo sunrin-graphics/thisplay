@@ -1082,7 +1082,7 @@ export default function Home() {
           <Child2>
             <Zone>
               <ZoneTitle>질문과 답변</ZoneTitle>
-              <ZoneDesc>많이하는 질문에 대한 답변들을 모아봤어요!</ZoneDesc>
+              <ZoneDesc>많이 하는 질문에 대한 답변들을 모아봤어요!</ZoneDesc>
             </Zone>
             <Part>
               {questionList.map((question, i) => (
